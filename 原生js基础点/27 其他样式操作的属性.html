@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他样式操作的属性</title>
+    <!-- 
+        element.clientHeight 返回元素的可见高度
+        element.clientWidth  返回元素的可见宽度  
+            这些属性都是不带px,返回的都是一个数字
+            会获取元素宽度和高度，包括内容区和内边距，不包括边框
+            因为这些属性的值是计算过来的，所以修改的话，不知道修改哪个，所以这些属性是只读的
+
+        element.offsetHeight 返回元素的高度
+        element.offsetWidth  返回元素的宽度
+            获取元素的整个的宽度和高度，包括内容区、内边距和边框
+
+        offsetParent 可以用来获取当前元素的定位父元素
+            会获取到当前元素最近的开启了定位（只要position不是默认的static）的祖先元素
+            如果所有的祖先元素都没有开启定位则会返回body
+
+        offsetLeft  当前元素相对于其定位元素的水平偏移量
+        offsetTop   当前元素相对于其定位元素的垂直偏移量
+
+        element.scrollHeight 返回元素的整体高度
+        element.scrollLeft   返回元素左边缘与视图之间的距离  获取水平滚动条滚动的距离
+        element.scrollTop    返回元素上边缘与视图之间的距离  获取垂直滚动条滚动的距离
+        element.scrollWidth  返回元素的整体宽度 
+            和client属性相比，client是可见的在页面的滚动框的，scroll是实际大小（比如overflow:auto以后会有部分不显示）
+            当满足scrollHeight - scrollTop == clientHeight, 说明滚动到底了
+            同理，水平滚动到底，scrollWidth - scrollLeft == clientWidth
+
+             
+     -->
+     <style>
+         #box1{
+             width: 100px;
+             height: 100px;
+             background-color: #bfa;
+             padding: 10px;
+             border: 10px solid yellow; 
+             color: red;
+             /* 背景色截取到内容区 */
+             background-clip: content-box; 
+             
+             
+         }
+     </style>
+     <script>
+         window.onload = function(){
+             var button01 = document.getElementById("btn01");
+             button01.onclick = function(){
+                // alert(box1.offsetHeight);
+                var op = box1.offsetParent;
+                alert(op.id);
+                //在没有设置box2,和box3时候输出[object HTMLBodyElement]
+             };
+             
+         };
+     </script>
+</head>
+<body id="body">
+    <button id="btn01">点我有惊喜~</button>
+    <div id="box3" style="position: relative">
+        <div id="box2" style="position: relative">
+            <div id="box1"></div>
+        </div>
+    </div>
+</body>
+</html>

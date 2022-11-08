@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            练习1
+            从键盘输入小明的期末成绩：
+            当成绩为100时，"奖励一辆BMW"
+            当成绩为【80-99】时，“奖励一台iphone13”
+            当成绩为【60-79】时，“奖励炉石卡包10包”
+            其他时候，什么奖励也没有。
+        */
+        /* 
+            prompt()可以弹出一个提示框，该提示框带有一个文本框
+            用户可以在文本框中输入一段内容，该函数需要一个字符串作为参数，
+            该字符串将会作为提示框的提示文字
+
+            用户输入的内容将会作为函数的返回值返回，可以定义一个变量来接收该内容
+            prompt()函数的返回值是String类型的
+            所以如果为了要number类型
+            这里可以这样写：var a = +prompt("请输入第一个数");
+        */
+        var score = prompt("请输入小明的成绩：");
+        // 判断输入的值是否合法
+
+        // 根据score的值来决定给小明什么奖励
+        if(score == 100){
+            alert("奖励你一辆宝马车~ ");
+        }
+        else if(score >=80){
+            alert("十三香！！");
+        }
+        else if(score >=60){
+            alert("炉石卡包十包开心嘛~");
+        }
+        else{
+            alert("再接再厉啦~");
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

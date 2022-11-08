@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选练习</title>
+</head>
+<body>
+    <script>
+        window.onload = function(){
+            /* 
+                1、#checkedAllBtn 全选
+                2、#checkedNoBtn 全不选
+                3、#checkedRevBtn
+                4、#sendBtn
+                5、#checkedAllBox
+                6、items    
+
+            */
+
+            //获取四个多选框items
+            var items = document.getElementsByName("items"); //ByName主要也是操作表单项 
+            
+            //获取全选全不选
+            var checkedAllBox = document.getElementById("checkedAllBox");
+            
+            /* 
+                全选按钮
+                点击按钮之后，全选中
+                1、#checkedAllBtn
+             */
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
+            checkedAllBtn.onclick = function(){
+                //遍历items
+                items = Array.from(items);
+                //设置四个多选框变成选中状态
+                items.forEach(element => {
+                    //通过多选框的checked属性可以获取
+                    element.checked = true;
+                    // alert(element.checked);
+                });
+                checkedAllBox.checked = true;
+            }
+
+            /* 
+                全不选按钮
+                点击按钮之后，全不选中
+                2、#checkedNoBtn
+             */
+            var checkedNoBtn = document.getElementById("checkedNoBtn");
+            checkedNoBtn.onclick = function(){
+                //遍历items
+                items = Array.from(items);
+                //设置四个多选框变成选中状态
+                items.forEach(element => {
+                    //通过多选框的checked属性可以获取
+                    element.checked = false;
+                    // alert(element.checked);
+                });
+                checkedAllBox.checked = true;
+            }
+
+
+            /* 
+                反选按钮
+                点击按钮之后，全选中
+                3、#checkedRecvBtn
+             */
+             var checkedRecvBtn = document.getElementById("checkedRecvBtn");
+             checkedRecvBtn.onclick = function(){
+                //遍历items
+                items = Array.from(items);
+                //设置四个多选框变成选中状态
+                items.forEach(element => {
+                    //通过多选框的checked属性可以获取
+                    //通过! 反选
+                    element.checked = !(element.checked);
+                        checkedAllBox.checked = true;
+                        for(var j = 0; j < items.length; j++){
+                            //判断是否已选，如已选
+                            if(items[j].checked == false){
+                                checkedAllBox.checked = false;
+                                break;
+                            }          
+                        };
+                });
+            };
+
+            /* 
+                提交按钮
+                点击按钮之后，全选中
+                4、#sendBtn
+             */
+             var sendBtn = document.getElementById("sendBtn");
+             sendBtn.onclick = function(){
+                //遍历items
+                items = Array.from(items);
+                //设置四个多选框变成选中状态
+                items.forEach(element => {
+                    //通过多选框的checked属性可以获取
+                    if(element.checked == true){
+                        alert(element.value);
+                    }
+                });
+            }
+
+            /* 
+                5、#checkedAllBox
+                在事件的响应函数中，响应函数是给谁绑定的this就是谁
+             */
+            checkedAllBox.onclick = function(){
+                items = Array.from(items);
+                items.forEach(element => {
+                    element.checked = this.checked;
+                    //element.checked = checkedAllBox.checked;
+                });
+            }
+
+            /* 
+                6、
+                为四个多选框分别绑定点击响应函数
+             */
+            for(var i = 0; i < items.length; i++){
+                items[i].onclick = function(){
+                    checkedAllBox.checked = true;
+                    for(var j = 0; j < items.length; j++){
+                        //判断是否已选，如已选
+                        if(items[j].checked == false){
+                            checkedAllBox.checked = false;
+                            break;
+                        }
+                    }
+                };
+            }
+            
+        };
+    </script>
+    <!-- 
+        method 属性规定如何发送表单数据（表单数据发送到 action 属性所规定的页面）。
+        表单数据可以作为 URL 变量（method="get"）或者 HTTP post （method="post"）的方式来发送。
+     -->
+    <form method = "post" action="">
+        你爱好的运动是？<input type="checkbox" id="checkedAllBox"/>全选/全不选
+        <br/>
+        <input type="checkbox" name="items" value="足球"/>足球
+        <input type="checkbox" name="items" value="篮球"/>篮球
+        <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+        <input type="checkbox" name="items" value="乒乓球"/>乒乓球
+        <br/>
+        <input type="button" id="checkedAllBtn" value="全选"/>
+        <input type="button" id="checkedNoBtn" value="全不选"/>
+        <input type="button" id="checkedRecvBtn" value="反选"/>
+        <input type="button" id="sendBtn" value="提交"/> 
+    </form>
+</body>
+</html>

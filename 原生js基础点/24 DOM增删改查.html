@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM增删改查</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        div#city li{
+            width: 60px;    
+            height: 20px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #bfa;
+            margin: 10px;
+        }
+        button{
+            background-color: gold;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="button01">创建阿瓦隆</button>
+    <button id="button02">温州插入到上海前面</button>
+    <button id="button03">北京替换上海</button>
+    <button id="button04">删除上海节点</button>
+    <button id="button05">显示city信息</button>
+    <button id="button06">上海变魔都</button>
+    <div id="city">
+        <li id="shanghai">上海</li>
+    </div>
+    <script>
+        window.onload = function(){
+
+            //1、创建新元素节点“阿瓦隆”
+            myClick("button01", function(){
+            /* 
+                document.createElement()
+                可以用于创建一个元素节点对象
+                他需要一个标签名作为参数，将会根据该标签名创建元素节点对象  
+                并将创建好的对象返回
+            */
+            var li = document.createElement("li");
+            /* 
+                document.createTextNode()
+                可以用来创建一个文本节点对象
+                需要一个文本内容作为参数
+            */
+            var text = document.createTextNode("阿瓦隆");
+
+           /* 
+                appendChild()
+                向一个父节点中添加一个新的子节点
+                用法：父节点.appendChild(子节点);
+           */
+            li.appendChild(text);
+
+            //获取id为city的节点 
+            var city = document.getElementById("city");
+
+            //将阿瓦隆添加到city下
+            city.appendChild(li); 
+            });
+        
+
+        function myClick(idStr, fun){
+            var btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
+
+        //2、将“温州”节点添加到“上海”前面
+        myClick("button02", function(){
+            //创建“温州”节点
+            var li2 = document.createElement("li");
+            var text2 = document.createTextNode("温州");
+            li2.appendChild(text2);
+            var city = document.getElementById("city");
+            /*
+                insertBefore()
+                    可以在指定的子节点前面插入新的子节点
+                语法：
+                    父节点.insertBefore(新节点，旧节点)
+            */
+
+            city.insertBefore(li2,shanghai);
+        });
+
+        //3、使用"北京"节点替换"上海"节点
+        myClick("button03",function(){
+            var li3 = document.createElement("li");
+            var text3 = document.createTextNode("北京");
+            li3.appendChild(text3);
+            //获取id为shanghai的节点
+            // var shanghai = document.getElementById("shanghai");
+            var city = document.getElementById("city");
+            /*
+                replaceChild()
+                可以使用指定的子节点替换已有的子节点
+                语法：父节点.replaceChild(新节点，旧节点);
+            */
+            city.replaceChild(li3,shanghai);
+        });
+
+        //4、删除shanghai节点
+        myClick("button04",function(){
+            var city = document.getElementById("city");
+            var shanghai = document.getElementById("shanghai");
+            // city.removeChild(shanghai);
+            /*
+                removeChild()
+                    可以删除一个节点
+                    语法：父节点.removeChild(bj);
+
+                子节点.parentNode.removeChild(子节点)
+             */
+            shanghai.parentNode.removeChild(shanghai); //利用自身的父节点来删除进行删除
+        });
+
+        //5、读取#city内的html代码
+        myClick("button05",function(){
+            var city = document.getElementById("city");
+            alert(city.innerHTML);
+        });
+
+        //6、设置#shanghai内的html代码
+        myClick("button06",function(){
+            var shanghai = document.getElementById("shanghai");
+            shanghai.innerHTML = "魔都";
+            alert(shanghai.innerHTML);
+        });
+    }
+    </script>
+</body>
+</html>

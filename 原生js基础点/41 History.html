@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <script>
+        /* 
+            History
+                - 对象可以用来操作浏览器向前或向后翻页
+        */
+        /* 
+            length 属性可以获取到当前访问的链接数量（只是当次的，一旦关闭了页面就没了）
+        */
+    //    alert("历史记录访问次数：" + history.length);
+        document.write("历史记录访问次数：" + history.length);
+        window.onload = function(){
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                /* 
+                    forward()
+                        --可以跳转下一个页面，作用和浏览器的前进按钮一致
+                */
+               history.forward();
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1>History</h1>
+    <a href="41-1 test01.html">go to test01</a>
+    <a href="41-2 test02.html">go to test02</a>
+    <button id="btn02">来点我呀！我们一起穿越未来~</button>
+</body>
+</html>

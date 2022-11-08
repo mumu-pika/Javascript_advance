@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Worker</title>
+</head>
+
+<body>
+    <!-- 
+        1. H5规范提供了js分线程的实现，取名为：Web Workers，
+
+        我们可以将一些大计算量的代码交由web worker运行而不冻结用户界面，但是子线程完全受主线程控制，且不得操作DOM，所以这个新标准并没有改变JavaScript单线程的本质
+
+        2. 相关API
+
+        * Worker: 构造函数，加载分线程执行的js文件
+        * Worker.prototype.onmessage: 用于接收另一个线程的回调函数
+        * Worker.prototype.postMessage: 象另一个线程发送消息
+
+        3. 不足
+
+        * Worker内代码不能操作DOM（更新UI）
+        * 不能跨域加载JS
+        * 不是每个浏览器都支持这个特性
+     -->
+     <div>斐波那些数列实现</div>
+     <input type="text" id="number">
+     <button id="btn">计算</button>
+
+     <script>
+         // 1 1 2 3 5 8 f(n) = f(n-1) + f(n-2)
+        var input = document.getElementById("number")
+        document.getElementById('btn').onclick = function(){
+             var n = input.value
+
+             //创建一个Worker对象
+             var worker = new Worker('worker.js')
+
+             //绑定接收消息的监听
+             worker.onmessage = function(event){
+                 console.log('主线程接收分线程返回的数据' + event.data)
+             }
+
+             //向分线程发送消息
+             worker.postMessage(n)
+
+             /* 
+                分线程中的全局对象不再是window,所以在分线程中不可能更新界面
+             
+             */
+
+         }
+     </script>
+</body>
+
+</html>

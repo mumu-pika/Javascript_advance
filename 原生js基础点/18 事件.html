@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <button id="btn">啦啦啦</button> 
+    <script>
+        /* 
+            事件：就是用户和浏览器之间的交互行为
+            我们要避免行为和结构耦合，
+        
+        */
+
+        var btn = document.getElementById("btn"); //获取按钮对象
+        //可以为按钮的对应事件绑定处理函数的形式来响应事件
+
+        //绑定一个单击事件
+        btn.onclick = function(){
+            alert("不许再点我啦~");
+        }
+    </script>
+
+</body>
+</html>

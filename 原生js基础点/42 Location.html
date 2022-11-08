@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <script>
+        /* 
+            Location
+                -- 该对象中封装了浏览器的地址栏的信息
+
+            assign() 加载新的文档
+                -- 用来跳转到其他页面，作用和直接修改Location 
+
+            reload() 重新加载当前文档, 作用和刷新按钮一样
+                -- 用于重新加载当前页面，作用和刷新按钮一样
+                如果在方法中传递一个true, 作为参数, 则会强制清空缓存
+
+            replace() 
+                -- 可以使用使用一个新的页面替换当前页面，调用完毕也会跳转页面
+                和assign()不同的地方在于replace()不会生成历史记录，不能使用回退按钮来回退
+        */
+       window.onload = function(){
+           var btn = document.getElementById("btn");
+           btn.onclick = function(){
+               //如果直接打印location, 则可以获取到地址栏的信息(当前页面的完整路径)
+               //alert(location); //这里会显示：http://127.0.0.1:5500/42%20Location.html
+               /* 
+                    如果直接locatioin属性修改为一个完整的路径，或相对路径
+                    则我们的页面会自动跳转到该路径，并且会生成相应的历史记录
+               */ 
+            //   location = "41 History.html";//这样子打开网页就直接定位到这个页面里面去了
+            // location.assign("http://www.baidu.com"); //注意这里需要加上http://  
+            location.reload(true);//现在浏览器会自动清除缓存了已经
+           }
+       };
+    </script>
+</head>
+<body>
+    <h1>Location</h1>
+    <button id="btn">点我啦</button>
+    <input type="text">
+</body>
+</html>

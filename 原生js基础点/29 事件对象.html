@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+    <style>
+        #areaDiv{
+            width: 400px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid black;
+        }
+
+        #showMsg{
+            width: 200px;
+            height: 50px;
+            background-color: #bfa;
+            border: 1px solid black;
+            margin: 20px 0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+                当鼠标在areaDiv中移动时，在showMsg中来显示鼠标的坐标
+            */
+
+            // 获取两个div
+            var areaDiv = document.getElementById("areaDiv");
+            var showMsg = document.getElementById("showMsg");
+
+            /* 
+                onmousemove
+                    该事件将会在鼠标在元素中移动时候被触发
+
+                事件对象
+                    当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数
+                    在事件对象event中封装了当前事件相关的一切信息，比如：鼠标的坐标，键盘哪个按键被按下，鼠标滚轮滚动的方向
+
+                clientX  返回当事件被触发时，鼠标指针的水平坐标
+                clientY  返回当事件被触发时，鼠标指针的垂直坐标
+
+                而对于IE8来说，响应函数被触发的时候，浏览器不会传递事件对象
+                    在IE8及以前版本的浏览器中，是将事件对象作为window对象的属性保存的
+                    所以要这样子写，
+                    var x = window.event.clientX;
+                    var y = window.event.clientY;
+                为了兼容的话，也就是解决事件对象的兼容问题的话
+                if(!event){
+                    event = window.event;
+                }
+                可以等价这样写 event = event || window.event;
+            */
+           areaDiv.onmousemove = function(event){
+            //    alert("我在里面啦");
+                var x = event.clientX;
+                var y = event.clientY;
+                // alert("x = " + x + ", y = " + y);
+
+                // 在showMsg中显示鼠标的坐标
+                showMsg.innerHTML = "x = " + x + ", y = " + y ;
+           };
+        };
+    </script>
+</head>
+<body>
+    <!-- 
+        areaDiv元素区域为鼠标移入以后移动的区域 
+        showMsg元素区域为显示鼠标在areaDiv区域中的坐标信息
+    -->
+    <div id="areaDiv"></div>
+    <div id="showMsg"></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+    <script>
+        /* 
+            原型 prototype
+            我们所创建的每一个函数，解析器都会向函数中添加一个属性prototype
+            这个属性对应着一个对象，这个对象就是原型对象
+
+            如果函数作为普通函数调用prototype没有任何作用
+            但是当函数以构造函数的形式调用时，它所创建的对象中都会有一个隐含的属性
+                指向该构造函数的原型对象，我们可以通过__proto__来访问该属性
+            _proto__（隐式原型）与prototype（显式原型）
+
+            显式原型的作用：用来实现基于原型的继承与属性的共享。
+            隐式原型的作用：构成原型链，同样用于实现基于原型的继承。
+            举个例子，当我们访问obj这个对象中的x属性时，如果在obj中找不到，那么就会沿着__proto__依次查找。
+
+            原型对象就相当于一个公共的区域，所有同一类的实例都可以访问到这个原型对象
+            我们可以将对象中共有的内容，统一设置到原型对象中
+
+         */
+
+         function MyClass(){
+             console.log("MyClass中的函数");
+         }
+         MyClass.prototype.a = 123;
+         MyClass.prototype.sayHello = function(){
+            alert("hello!!");
+         };
+         var mc = new MyClass();
+
+         console.log(MyClass.prototype);
+         console.log(mc.__proto__ == MyClass.prototype); //输出true
+         console.log(mc.a);
+         mc.sayHello();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM查询</title>
+</head>
+<body>
+    <div id="total">
+        <div id="inner">
+            <ul class="city">
+                <li id="shanghai">上海</li>
+                <li id="avalon">阿瓦隆</li>
+            </ul>
+            <p name = "words", value = "madrigal">这是一首简单的小情歌</p>
+            <p name = "words", value = "story">这是一段曾经的小故事</p>
+        </div>
+        <div id="outer">
+            <button id="btn01">查找#shanghai节点</button>
+            <button id="btn02">查找所有li节点</button>
+            <button id="btn03">查找name为words的节点</button>
+        </div>
+    </div>
+    
+    <script>
+        window.onload = function(){
+
+            //为id为btn01的按钮绑定一个单击响应函数
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                //查找#shanghai的节点
+                var sh = document.getElementById("shanghai");
+                alert(sh.innerHTML);
+            }
+
+
+            //为id为btn02的按钮绑定一个单击响应函数
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                //查找所有li节点
+                var lis = document.getElementsByTagName("li");
+                // 输出lis的长度
+                // alert(lis.length);
+
+                // 遍历lis类数组对象方法1
+                // for (var i = 0; i < lis.length; i++) {
+                //     alert(lis[i].innerHTML);
+                // }
+
+                // 遍历lis类数组对象方法2
+                lis = Array.from(lis); 
+                //Array.from()方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组。 将类数组对象转换为真正数组
+                // lis.forEach(function(value,index,array) {
+                //     alert(value.innerHTML);
+                // });
+
+                //遍历lis类数组对象方法3
+                lis.forEach(element => alert(element.innerHTML));
+            }
+
+            //为id为btn03的按钮绑定一个单击响应函数
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function(){
+                var words = document.getElementsByName("words");
+                for (var i = 0; i < words.length; i++) {
+                    alert(words[i].getAttribute("value"));   
+                }
+                //getAttribute("xxx")获取属性中的指定xxx的属性值
+            }   
+            //innerHTML用于获取元素内部的HTML代码的，对于自结束标签，这个属性没有意义
+            //如果需要读取元素节点属性，直接使用元素.属性名
+
+            /* 
+                获取元素节点
+                通过document对象调用
+                1、getElementById() 通过id属性获取一个元素节点对象
+
+                2、getElementsByTagName() 通过标签名获取一组元素节点的对象
+
+                3、getElementsByName() 通过name属性获取一组元素节点对象
+            */
+
+        };
+    </script>
+
+
+</body>
+</html>

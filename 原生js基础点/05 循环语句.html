@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环语句</title>
+    <script>
+        /* 
+            可以为循环语句创建一个label, 来标识当前的循环
+            label:循环语句
+            使用break 语句时候，可以在break后跟着一个label
+            这样break将会结束指定的循环，而不是最近的
+
+         */
+        /* 
+            测试如下程序的性能
+            在程序执行前，开启计时器
+            console.time(“计时器的名字”)可以开启一个计时器
+            它需要一个字符串作为参数，这个字符串将会作为计时器的标识
+        */
+
+        console.time("帅惠上分时长");
+
+         outer:
+            for(var i = 0; i < 5; i++){
+                document.write("外层循环" + i);
+                document.write("<br>");
+                for(var j = 0; j < 5; j++){
+                    document.write("内层循环：" + j);
+                    break outer;
+                    document.write("<br>");
+                }
+            }
+        console.timeEnd("帅惠上分时长");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委派</title>
+    <script>
+        window.onload = function(){
+            var u1 = document.getElementById("u1");
+
+            //点击按钮Button01添加一个新的超链接
+            var button01 = document.getElementById("btn01");
+            button01.onclick = function(){
+                //创建一个新的li
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='javascript:;'class='link'>新建的超链接</a>"; //这里双引号需要改为单引号
+
+                //将li添加到ul中
+                u1.appendChild(li);
+
+                /* 
+                    问题来源：
+                    1、新创建的超链接没有绑定单击响应函数（原本在ul中的三个li中a超链接都绑定了一个单击响应函数）
+                
+                */
+            };
+            /* 
+                为每一个超链接都绑定一个单击响应函数，这种操作比较麻烦
+                而且这些操作只能为已有的超链接设置事件，而新添加的超链接必须重新绑定
+
+            */
+           //获取所有的a
+           var allA = document.getElementsByTagName("a");
+        //    //方法一 (不建议使用)
+        //    //遍历
+        //    for(var i = 0; i < allA.length; i++){
+        //        allA[i].onclick = function(){
+        //            alert("happy");
+        //        };
+        //    }
+            /* 
+                我们希望只绑定一次事件，即可应用到多个元素上，即使元素是后添加的
+                我们可以尝试将其绑定给元素的共同的父元素或者是祖先元素
+
+                事件的委派指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的事件触发时，会一直冒泡到祖先元素
+                    从而通过祖先元素的响应函数来处理事件
+                    事件委派是利用了冒泡，通过委派可以减少事件绑定的次数，提高程序的性能
+                
+                event里有一个属性target 返回触发此事件的元素（事件的目标节点）
+            */
+            //方法二
+            //为ul绑定一个单击响应函数(因为事件冒泡的机制，所以点击a会触发ul的事件触发)，这种就叫事件的委派
+            u1.onclick = function(event){
+                // alert(this); //输出[object HTMLUListElement]。事件给谁绑定的，这里的this就是谁
+                /*
+                    如果触发事件的对象是我们期望的元素，则执行否则不执行
+                    所以我们需要知道事件是由谁来触发的
+
+                 */
+
+                 event = event || window.event; //解决兼容问题
+                 /*
+                    点击a超链接上面会返回javascript:;
+                    点击ul其他地方会返回[object HTMLLIElement]
+                    target
+                        event中的target表示的触发事件的对象
+                 */
+                //  alert(event.target); //根据鼠标点击的不同地方返回不同的结果
+
+                //判断鼠标点击的地方是不是超链接a
+                //这里这个方法有个小隐患，就是一个元素可以有多个className,这样会影响判断
+                if(event.target.className == "link"){
+                    alert("123");
+                }
+
+                // alert("我是ul的单击响应函数");
+            };
+        };
+
+    </script>
+</head>
+<body>
+    <button id="btn01">添加超链接</button>
+    <ul id="u1">
+        <li><a href="javascript:;" class="link">超链接1</a></li>
+        <li><a href="javascript:;" class="link">超链接2</a></li>
+        <li><a href="javascript:;" class="link">超链接3</a></li>
+    </ul>
+</body>
+</html>

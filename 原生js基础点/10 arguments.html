@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments</title>
+    <script>
+        /* 
+            在调用函数的时候，浏览器每次都会传递两个隐含的参数
+            1、函数上下文的对象 this
+            2、封装实参的对象arguments
+                arguments是一个类数组对象,也可以通过索引来操作数据，也可以获取长度
+                在调用函数时候，我们所传递的实参都会在arguments中保存
+                    arguments[0] 第一个属性
+                    arguments[1] 第二个属性
+
+                它里面还有一个属性：callee
+                这个属性对应一个函数对象，就是当前正在指向的函数的对象
+         */
+
+        function fun(){
+            console.log("arguments： " + arguments);
+            // console.log(arguments instanceof Array); //判断arguments是否是数组
+            // console.log(Array.isArray(arguments)); //判断arguments是否是数组
+            console.log("arguments的长度： " + arguments.length);
+            console.log("arguments的第一个元素： " + arguments[0]);
+            console.log("arguments的第二个元素： " + arguments[1]);
+            console.log("arguments的元素正在指向的函数的对象： " + arguments.callee);
+        };
+
+        fun("yes", 123); 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

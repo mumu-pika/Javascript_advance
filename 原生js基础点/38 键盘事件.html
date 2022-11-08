@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function () {
+            /*
+                onkeydown 某个键盘按键被按下不松手，则事件会一直触发
+                    对于onkeydown来说如果一直按着某个按键buso
+                onkeyup 某个键盘按键被按下并松开
+                键盘事件一般都会绑定给一些可以获取到焦点的对象或者是document
+                这种设计是为了防止误操作的发生
+
+                在IE8中，我们可以用keyCode来获取按键的编码
+                通过它可以判断哪个按键被按下
+                除了keyCode, 事件对象中还提供了几个属性
+                altKey
+                ctrlKey
+                shiftKey
+                    如果按下则返回true, 否则返回false
+
+                if(event.keyCode ==  89){
+                    console.log("y被按下啦");
+                }
+
+            */
+
+            //获取input
+            var input = document.getElementsByTagName("input")[0];
+            input.onkeydown = function(){
+                console.log("input");
+                /*
+                    在文本框中输入内容，属于onkeydown的默认行为，
+                    如果在onkeydown中取消了默认行为，则输入的内容，不会出现在文本框中,
+                    于是我们可以利用这个特性来实现下面这个功能：使文本框中不能输入数字
+                 */
+                //使文本框中不能输入数字
+                /*
+                    数字的keyCode
+                */
+                if(event.keyCode >= 48 && event.keyCode <= 57){
+                    /*
+                        在文本框中输入内容，属于onkeydown的默认行为
+                        如果在onkeydown中取消了默认行为，则输入的内容不会出现在文本框中
+                    */
+                   return false;
+                }
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box1">我是一个盒子啦</div>
+    <input type="text" id="input1">
+</body>
+
+</html>

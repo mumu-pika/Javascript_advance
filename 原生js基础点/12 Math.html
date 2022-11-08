@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+    <script>
+        /* 
+            Math 
+            Math 和其他的对象不同，它不是一个构造函数
+            它属于一个工具类，不用创建对象，它里边封装了数学运算相关的属性和方法
+                比如：MatH.PI 表示圆周率
+        */
+
+        /* 
+            abs()
+            计算一个数的绝对值
+
+            Math.ceil()
+            对一个数进行向上取整，小数位只要有值，就会自动进1
+
+            Math.floor()
+            对一个数进行向下取整，小数部分会被舍掉
+
+            Math.round()
+            可以对一个数进行四舍五入取整
+
+            Math.random()
+            可以用来生成一个介于0（包含）~ 1（不包含）之间的一个随机数
+                - 生成一个0 ~ 10 之间的随机数
+                - 生成一个0 ~ X 之间的随机数
+                Math.round(Math.random()*X);
+
+                - 生成一个1 ~ 10 之间的随机数
+                - 生成一个X ~ Y 之间的随机数
+                Math.round(Math.random()*(Y-X) + X );
+
+        */
+
+        /* 
+            随机生成一个0-10之间的随机数
+        */
+        for (var i = 0; i < 10; i++){
+            console.log(Math.round(Math.random()*10));
+        }
+
+        /* 
+            max() 可以获取多个数中的最大值  
+            min() 可以获取多个数中的最小小值
+        */
+
+        var max = Math.max(10, 45, 30, 100);
+        console.log("max(): " + max);
+
+        var min = Math.min(30, 40, 20,80);
+        console.log("min(): " + min);
+
+        /* 
+            Math.pow(x,y)
+            返回x的y次幂
+        */
+
+        /* 
+            Math.sqrt()
+            对一个数进行开放运算
+        */
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

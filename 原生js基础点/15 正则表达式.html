@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+    <script>
+        /* 
+            创建正则表达式的对象
+            语法：
+                var 变量 = new RegExp("正则表达式", "匹配模式")
+            
+            var reg = new RegExp("a");//这个正则表达式可以用来验证一个字符串中是否含有a
+            正则表达式的方法：
+            test()
+                使用这个方法可以用来检查一个字符串是否符合正则表达式 
+        */
+
+
+        var reg = new RegExp("a");
+        var str = "abc";
+        var result = reg.test(str);
+        console.log(result);
+
+        /* 
+            \w 任意字母、数字、_ [A-z0-9_]
+            \W 除了字母、数字、 _ [^A-z0-9_]
+            \s 空格
+            \d 任意的数字
+            \b 单词边界
+            
+        */
+        
+    </script>
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

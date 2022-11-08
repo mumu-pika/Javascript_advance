@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 200px;
+            top: 200px; 
+        }
+
+        #img01{
+            left: 400px;
+            top: 100px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            /* 
+                拖拽box1元素
+                    拖拽的流程 
+                        1、当鼠标在被拖拽元素上按下时（onmousedown 屏幕按钮被按下），开始拖拽  
+                        2、当鼠标移动时被拖拽元素跟随鼠标移动（onmousemove 鼠标被移动）
+                        3、当鼠标松开后被拖拽元素固定在当前位置（onmouseup 鼠标按键被松开）
+
+
+             */
+
+            //获取box元素
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            //拖拽box
+            drag(box1);
+            drag(box2);
+
+            //获取img元素
+            var img01 = document.getElementById("img01");
+            drag(img01);
+        };
+
+        //为拖拽事件绑定一个函数
+        function drag(obj){
+                //为obj绑定一个鼠标按下事件
+                obj.onmousedown = function (event) {
+                // alert("鼠标被按下啦~");
+
+                /* 
+                    setCapture() 对指定的事件进行捕获
+                    这个方法IE支持，但是在火狐中调用时不会报错，在Chrome中调用会报错
+                    下面这部分做兼容用
+                */
+                // //方法一
+                // if(obj.setCapture){
+                //     box1.setCapture();
+                // }
+                //方法二
+                obj.setCapture && obj.setCapture();
+
+                event = event || window.event;
+                var offsetleft = event.clientX - obj.offsetLeft;
+                var offsettop = event.clientY - obj.offsetTop;
+
+                console.log(offsetleft);
+                console.log(event.clientX);
+                console.log(obj.offsetLeft);
+
+
+                //当鼠标移动时被拖拽元素跟随鼠标移动 onmousemove
+                //为document绑定一个onmousemove
+                document.onmousemove = function (event) {
+                    event = event || window.event;
+
+                    // //获取鼠标的坐标(自定义，拖拽元素时候，鼠标在元素的中间)
+                    // var lala = getComputedStyle(obj, null).width;
+                    // console.log(parseInt(lala) / 2);
+                    // var left = event.clientX - parseInt(getComputedStyle(obj, null).width) / 2;
+                    // var top = event.clientY - parseInt(getComputedStyle(obj, null).height) / 2;
+
+                    //获取鼠标的坐标
+                    var left = event.clientX - offsetleft;
+                    var top = event.clientY - offsettop;
+
+
+                    //修改obj的位置
+                    obj.style.left = left + "px";
+                    obj.style.top = top + "px";
+                };
+
+                //当鼠标松开时候，被拖拽元素固定在当前位置 onmouseup
+                //为元素绑定一个鼠标松开事件，注意！！这里需要是document绑定，
+                document.onmouseup = function () {
+                    //取消document的onmousemove事件
+                    document.onmousemove = null;
+
+                    //取消document.onmouseup事件，这样子鼠标松开这个事件就触发一次就可以了
+                    document.onmouseup = null;//我取消我自己
+
+                    //当鼠标松开时候，取消对事件的捕获
+                    obj.releaseCapture && obj.releaseCapture();
+
+                };
+                /* 
+                    当我们拖拽一个网页中的内容的时候，浏览器会默认去搜索引擎中搜索内容
+                    此时会导致拖拽功能的异常，这个是浏览器提供的默认行为
+                    如果不希望发生这个行为，则可以通过return false来取消默认行为
+                    但是这个对于IE8及以下版本不起作用
+                */
+            };
+        }
+
+    </script>
+</head>
+
+<body>
+    啦啦啦
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <img src="./image/1.jpg" alt="拖拽图片" id="img01">
+
+</body>
+
+</html>

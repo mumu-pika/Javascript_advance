@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣诞树</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(54,66,70);
+        }
+        .tree{
+            position:relative;
+            width: 50px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            background-color: blueviolet;
+        }
+        .star{
+            width: 50px;
+            height: 50px;
+            position:absolute;
+            background-color: rgb(236,234,167);
+            z-index: 999;
+            /* 设置顶上星星下面第一条 */
+            margin-bottom: 40px;
+            /*
+                polygon()函数是一个图形函数，用于指定某种基本图形<basic-shape>类型。polygon()函数用于定义一个多边形
+                polygon()函数用于定义一个多边形。
+                它的参数是一组坐标对（<shape-arg> <shape-arg>），每一个坐标对代表多边形的一个顶点坐标。浏览器会将最后一个顶点和第一个顶点连接得到一个封闭的多边形。
+                坐标对使用逗号来进行分隔，可以使用绝对单位或百分比单位值。
+             */
+            /* 做出五角星的样子 */
+            clip-path:polygon(50% 0,65% 40%,100% 40%,72% 60%,85% 100%,50% 75%,15% 100%,28% 60%,0 40%,35% 40%);
+        }
+        .tree li{
+            position: absolute;
+            top: 25px;
+            width: 2px;
+            height: 100px;
+            background:linear-gradient(rgba(46,204,113,1),rgba(46,204,113,0.3));
+            /* 更改一个元素变形的原点 */
+            transform-origin:50% 0;
+            animation: run 1s ease-out-in infinite;
+
+
+        }
+        @keyframes run {
+            0%, 100%{
+                transform: rotate(-30deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="tree">
+        <div class="star"></div>
+    </ul>
+</body>
+<script>
+    let tree = document.querySelector('.tree');
+    for(let i = 0; i < 128; i++){
+        let li = document.createElement('li');
+        //给所有li标签加上序号值，值是从1到128
+        li.style = "--i" + i;
+        tree.appendChild(li);
+    }
+</script>
+</html>

@@ -31,7 +31,6 @@ console.log("JSON序列化以后", cloned)
 // 使用WeakMap是为了使用弱引用，避免对象已经清理, 而map中对于对象的引用未清除的情况
 let cached = new WeakMap()
 
-
 function deepClone(obj) {
   // 宏观思维, 处理不同类型， 两大分类：基本 + 引用
   // 注意null也是对象
@@ -92,5 +91,6 @@ function deepClone(obj) {
   }
 }
 
+// 应用
 let clonedObj = deepClone(obj1)
 console.log("deepClone之后", clonedObj)

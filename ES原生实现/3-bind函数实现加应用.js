@@ -15,12 +15,11 @@ function myBind(context) {
 
   const f = function () {
     const args2 = Array.prototype.slice.call(arguments)
-
     return _this.call(f.prototype.isPrototypeOf(this)? this: context, args1.concat(args2))
 
   }
 
-  // 隐藏内部函数的原型，修正成调用方fn的原型
+  // 隐藏内部函数的原型，修正成调用方_this的原型
   f.prototype = _this.prototype
 
   return f

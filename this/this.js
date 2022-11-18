@@ -38,7 +38,7 @@ console.log(player2.game())
 
 // ******************************************************************//
 
-/* 
+/*
   In Javascript, out lexical scope(静态作用域)
   (available data + variable where the function was defined)
   determines our available variables. Not where the function
@@ -61,7 +61,7 @@ console.log(player2.game())
 // console.log(boss.fight())
 
 // To solve the problem above
-/* 
+/*
   为了解决动态作用域中this的指向问题, 我们可以使用箭头函数
   箭头函数与普通的函数有不同的词法lexical的this行为, 如果我们
   将上面的anotherFunction的那个function替换为箭头函数, 那么
@@ -117,3 +117,6 @@ const boss = {
   }
 }
 console.log(boss.fight())
+
+
+

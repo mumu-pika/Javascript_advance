@@ -34,7 +34,7 @@
 // const peter = createElf('Peter', 'stones')
 // console.log(peter.attack())
 
-/* 
+/*
   但是上面的工厂函数还有一个可以改进的地方, 对于
   `name` 和 `weapon` 是存储在一个地方, 但是对于
   `attack()` 这个方法却是会在不同的地方存储, 于是

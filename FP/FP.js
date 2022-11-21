@@ -13,6 +13,15 @@
   数据与行为分离, FP中创建的对象是不可变的, 我们需要避免
   共享状态这样的事, 需要坚持纯函数的原则。
 
+  一个好的函数要素
+    * do one thing very well. (One Task)
+    * return Statement
+    * Pure
+    * No shared state
+    * Immutable State 不变的状态 (返回的是状态的副本)
+    * Composable 可组合的
+    * Predictable  可预测的
+
   FP的几大支柱；
   * pure functions 纯函数
 

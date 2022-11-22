@@ -20,8 +20,50 @@ const user = {
 
 */
 
-function addItems(item) {
-  user.cart.push(item)
+// 尝试记录购物车
+let amazonHistory = []
+
+function getUserState() {}
+function goForward() {}
+
+const compose = (f, g) => (...args) => f(g(...args))
+function purchaseItem(...fns) { return fns.reduce(compose) }
+console.log(
+  purchaseItem(
+    emptyCart,
+    buyItem,
+    applyTaxToItems,
+    addItemToCart
+  )(user, { name: 'laptop', price: 300 })
+)
+
+function addItemToCart(user, item) {
+  amazonHistory.push(user)
+  const updateCart = user.cart.concat(item)
+  return Object.assign({}, user, { cart: updateCart })
 }
 
+function applyTaxToItems(user) {
+  amazonHistory.push(user)
+  const { cart } = user
+  const taxRate = 1.3
+  const updateCart = cart.map(item => {
+    return {
+      name: item.name,
+      price: item.price * taxRate
+    }
+  })
+  return Object.assign({}, user, { cart: updateCart })
+}
 
+function buyItem(user) {
+  amazonHistory.push(user)
+  return Object.assign({}, user, { purchases: user.cart })
+}
+
+function emptyCart(user) {
+  amazonHistory.push(user)
+  return Object.assign({}, user, { cart: [] })
+}
+
+console.log(amazonHistory)

@@ -5,6 +5,7 @@
 */
 
 function memoizedAdd100 () {
+  // 缓存空间
   let cache = {}
   return function (n) {
     if (n in cache) {

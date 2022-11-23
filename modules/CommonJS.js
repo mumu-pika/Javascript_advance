@@ -6,16 +6,11 @@ const module2 = require('module2')
 
 // const fight2 = require('module1').fight
 
-function fight2() {
-
-
-}
+function fight2() { }
 
 module.exports = {
   fight: fight
 }
-
-
 /*
   browserify lets us `require` modules in the
   browser by bundling up all of your dependencies.

@@ -5,13 +5,9 @@ define(['module1', 'module2'],
     var module1 = module1Import
     var module2 = module2Import
 
-    function dance() {
-
-    }
-
+    function dance() { }
     return {
       dance: dance
     }
-
   }
 )

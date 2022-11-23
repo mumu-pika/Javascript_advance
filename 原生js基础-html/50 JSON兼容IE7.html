@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-        var str = '{"name":"pika", "age":"20", "gender":"男"}';
-        /*
+      var str = '{"name":"pika", "age":"20", "gender":"男"}'
+      /*
             eval()
                 -这个函数可以用来执行一段字符串形式的JS代码.并将执行结果返回
                 -如果使用eval()执行的字符串中含有{},它会将{}当成是代码块
@@ -16,13 +16,11 @@
             但是在开发中尽量不要使用，首先它的执行性能比较差，它还具有安全隐患
          */
 
-         var str2 = 'alert("hello");';
-         eval(str2);
-         var obj = eval("(" + str +")");
-         console.log(obj);
+      var str2 = 'alert("hello");'
+      eval(str2)
+      var obj = eval('(' + str + ')')
+      console.log(obj)
     </script>
-</head>
-<body>
-
-</body>
+  </head>
+  <body></body>
 </html>

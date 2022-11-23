@@ -5,11 +5,10 @@ async function test() {
     await Promise.resolve('good!')
     // await Promise.reject('oopsie #1')
     await Promise.reject('oopsie #2')
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err)
   }
-  console.log('here!')
+  console.log('heel')
 }
 
 test()

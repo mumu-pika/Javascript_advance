@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>延时调用</title>
     <script>
-        // //开启一个定时器
-        // var num = 0;
-        // setInterval(() => {
-        //     num ++;
-        //     console.log(num);
-        // },1000);
+      // //开启一个定时器
+      // var num = 0;
+      // setInterval(() => {
+      //     num ++;
+      //     console.log(num);
+      // },1000);
 
-        //开启延时定时器
-        /*
+      //开启延时定时器
+      /*
             延时调用
             延时调用一个函数不马上执行，而是隔上一段时间以后再实行
             而且这个只会执行一次
@@ -23,14 +22,11 @@
             延时调用执行多次就变成了定时调用，而定时调用执行多次就变成了延时调用
             在开发中可以根据自己的需要去选择
          */
-        var num = 0;
-        setTimeout(()=>{
-            console.log(num++);
-        },1000);
-
+      var num = 0
+      setTimeout(() => {
+        console.log(num++)
+      }, 1000)
     </script>
-</head>
-<body>
-
-</body>
+  </head>
+  <body></body>
 </html>

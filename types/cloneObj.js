@@ -19,7 +19,7 @@ let obj = {
 
 // Pass Value, 改变obj中属性的值不会影响cLone对象中的值
 let clone1 = Object.assign({}, obj)
-let clone2 = {...obj}
+let clone2 = { ...obj }
 
 // obj.c = "abc"
 // console.log(clone1)

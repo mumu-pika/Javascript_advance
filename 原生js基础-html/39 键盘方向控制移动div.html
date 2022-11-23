@@ -1,114 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>键盘方向控制div</title>
     <style>
-        #box1 {
-            width: 100px;
-            height: 100px;
-            background-color: #bfa;
-            color: black;
-            text-align: center;
-            line-height: 100px;
-            position: absolute;
-
-        }
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: #bfa;
+        color: black;
+        text-align: center;
+        line-height: 100px;
+        position: absolute;
+      }
     </style>
     <script>
-        window.onload = function () {
-            //使div可以根据不同的方向键向不同的方向移动
-            /*
+      window.onload = function () {
+        //使div可以根据不同的方向键向不同的方向移动
+        /*
                 按左键，div向左移
                 按右键，div向右移
                 ...
                 键盘方向键的ascii码:左(37), 上(38), 右(39), 下(40)
             */
 
-            //定义一个变量，来设定移动的速度
-            var speed = 30;
+        //定义一个变量，来设定移动的速度
+        var speed = 30
 
-            //设置一个方向的变量
-            //通过修改dir来影响移动的方向
-            var dir = 0;
+        //设置一个方向的变量
+        //通过修改dir来影响移动的方向
+        var dir = 0
 
-            //由于原来的方法从启动到行动会有小卡顿，于是这里我们引入定时器，来控制div移动
-            setInterval(() => {
-                //判断键盘输入的值来做相应的操作
-                switch (dir) {
-                    case 37:
-                        box1.style.left = box1.offsetLeft - speed + "px";
-                        break;
-                    case 38:
-                        box1.style.top = box1.offsetTop - speed + "px";
-                        break;
-                    case 39:
-                        box1.style.left = box1.offsetLeft + speed + "px";
-                        break;
-                    case 40:
-                        box1.style.top = box1.offsetTop + speed + "px";
-                        break;
-                }
-            }, 100);
-            var box1 = document.getElementById("box1");
-            document.onkeydown = function (event) {
-                event = event || window.event;
+        //由于原来的方法从启动到行动会有小卡顿，于是这里我们引入定时器，来控制div移动
+        setInterval(() => {
+          //判断键盘输入的值来做相应的操作
+          switch (dir) {
+            case 37:
+              box1.style.left = box1.offsetLeft - speed + 'px'
+              break
+            case 38:
+              box1.style.top = box1.offsetTop - speed + 'px'
+              break
+            case 39:
+              box1.style.left = box1.offsetLeft + speed + 'px'
+              break
+            case 40:
+              box1.style.top = box1.offsetTop + speed + 'px'
+              break
+          }
+        }, 100)
+        var box1 = document.getElementById('box1')
+        document.onkeydown = function (event) {
+          event = event || window.event
 
-                // //定义一个变量，来设定移动的速度
-                // var speed = 20;
+          // //定义一个变量，来设定移动的速度
+          // var speed = 20;
 
-                //定义同时按下ctrl键会加速
-                if (event.ctrlKey) {
-                    speed = 200;
-                }
+          //定义同时按下ctrl键会加速
+          if (event.ctrlKey) {
+            speed = 200
+          }
 
-                //使方向变量dir等于keycode
-                dir = event.keyCode;
-                // //判断键盘输入的值来做相应操作
-                // if(event.keyCode == 37){
-                //     //方向向左
-                //     box1.style.left = box1.offsetLeft - speed + "px";
-                // }
-                // else if(event.keyCode == 38){
-                //     box1.style.top = box1.offsetTop - speed + "px";
-                // }
-                // else if(event.keyCode == 39){
-                //     box1.style.left = box1.offsetLeft + speed + "px";
-                // }
-                // else if(event.keyCode == 40){
-                //     box1.style.top = box1.offsetTop + speed + "px";
-                // }
+          //使方向变量dir等于keycode
+          dir = event.keyCode
+          // //判断键盘输入的值来做相应操作
+          // if(event.keyCode == 37){
+          //     //方向向左
+          //     box1.style.left = box1.offsetLeft - speed + "px";
+          // }
+          // else if(event.keyCode == 38){
+          //     box1.style.top = box1.offsetTop - speed + "px";
+          // }
+          // else if(event.keyCode == 39){
+          //     box1.style.left = box1.offsetLeft + speed + "px";
+          // }
+          // else if(event.keyCode == 40){
+          //     box1.style.top = box1.offsetTop + speed + "px";
+          // }
 
-                // switch(event.keyCode){
-                //     case 37:
-                //         console.log("向左边");
-                //         break;
-                //     case 38:
-                //         console.log("向上边");
-                //         break;
-                //     case 39:
-                //         console.log("向右边");
-                //         break;
-                //     case 40:
-                //         console.log("向下边");
-                //         break;
-                // }
-            };
+          // switch(event.keyCode){
+          //     case 37:
+          //         console.log("向左边");
+          //         break;
+          //     case 38:
+          //         console.log("向上边");
+          //         break;
+          //     case 39:
+          //         console.log("向右边");
+          //         break;
+          //     case 40:
+          //         console.log("向下边");
+          //         break;
+          // }
+        }
 
-            //当按键松开时候设置dir为0
-            document.onkeyup = ()=>{
-                //设置方向为0
-                dir = 0;
-            };
-        };
+        //当按键松开时候设置dir为0
+        document.onkeyup = () => {
+          //设置方向为0
+          dir = 0
+        }
+      }
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="box1">我是一个盒子</div>
-</body>
-
+  </body>
 </html>

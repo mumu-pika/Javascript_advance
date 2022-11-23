@@ -35,10 +35,10 @@
 
 let view
 function initialize() {
-  view = 'it\'s a view'
+  view = "it's a view"
   console.log('view has been set')
 }
-function once(fn){
+function once(fn) {
   if (typeof fn !== 'function') throw new Error('Please pass a function')
 
   return function (...args) {
@@ -51,4 +51,3 @@ function once(fn){
 
 let onlyOnce = once(initialize)
 onlyOnce()
-

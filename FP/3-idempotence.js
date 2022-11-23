@@ -14,6 +14,6 @@
 */
 
 // 对于下面这个函数, 无论输入的是什么数字, 都会是正数
-function a (num) {
+function a(num) {
   return Math.abs(num)
 }

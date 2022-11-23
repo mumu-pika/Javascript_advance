@@ -4,14 +4,13 @@
   Memoization是一种特定形式的Caching, 我们动态规划（dynamic programming）中使用比较多。
 */
 
-function memoizedAdd100 () {
+function memoizedAdd100() {
   // 缓存空间
   let cache = {}
   return function (n) {
     if (n in cache) {
       return cache[n]
-    }
-    else {
+    } else {
       cache[n] = n + 100
       return cache[n]
     }

@@ -4,7 +4,6 @@
 
 */
 
-
 class MyError extends Error {
   constructor(message) {
     super(message)
@@ -14,5 +13,5 @@ class MyError extends Error {
 }
 
 // throw new myError('This is my error')
-const error =  new MyError('This is my error')
+const error = new MyError('This is my error')
 console.log(error.pokemon)

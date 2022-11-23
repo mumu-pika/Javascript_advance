@@ -4,9 +4,8 @@
 */
 
 const multiply = (a, b) => a * b
-const curriedMultiply = (a) => (b) => a * b
+const curriedMultiply = a => b => a * b
 console.log(curriedMultiply(2)(3)) // 6
-
 
 /* 
   Partial Application
@@ -25,4 +24,4 @@ console.log(curriedMultiply(2)(3)) // 6
 const fn = (a, b, c) => a * b * c
 // 这里我们不关心this, 也就是不关心是谁调用的，设置为null
 const partialFn2 = fn.bind(null, 2)
-console.log(partialFn2(3,6)) // 36
+console.log(partialFn2(3, 6)) // 36

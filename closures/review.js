@@ -3,14 +3,18 @@
 const hof = () => () => 6
 console.log(hof()())
 
-const hof2 = (fn) => fn(10)
-console.log(hof2(function a (x) {return x}))
+const hof2 = fn => fn(10)
+console.log(
+  hof2(function a(x) {
+    return x
+  })
+)
 
 // Closure  containing some sort of state
-const closure = function() {
+const closure = function () {
   let count = 0
-  return function increment () {
-    count ++
+  return function increment() {
+    count++
     return count
   }
 }

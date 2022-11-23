@@ -10,7 +10,6 @@
 //   }, 2000)
 // }
 
-
 /* 
   这个例子中, closureI是作为立即执行函数的arguments,
   setTimeout中使用到了这个变量, 因此也是给closure.
@@ -22,7 +21,7 @@
 */
 const array = [1, 2, 3, 4, 5, 6]
 for (var i = 0; i < array.length; ++i) {
-  (function (closureI) {
+  ;(function (closureI) {
     setTimeout(() => {
       console.log(array[closureI])
     }, 2000)

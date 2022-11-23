@@ -9,10 +9,10 @@
 // 以各种组合进行选择和组装
 
 // 组合相比继承能构建出更容易预测已经未来更容易修改的方式
-const compose = (f, g) => (data) => f(g(data))
+const compose = (f, g) => data => f(g(data))
 
-const multiplyBy2 = (num) => num * 2
-const makePositive = (num) => Math.abs(num)
+const multiplyBy2 = num => num * 2
+const makePositive = num => Math.abs(num)
 
 const multiplyBy2AndAbsolute = compose(multiplyBy2, makePositive)
 

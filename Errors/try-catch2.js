@@ -1,11 +1,9 @@
 try {
   try {
     console.log('trying somthing...')
-  }
-  catch (e) {
+  } catch (e) {
     throw new Error(e)
   }
-}
-catch (e) {
+} catch (e) {
   console.log('got error:', e)
 }

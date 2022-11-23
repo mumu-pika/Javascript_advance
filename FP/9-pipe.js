@@ -7,5 +7,5 @@ compose(fn1, fn2, fn3)(50)
 pipe(fn3, fn2, fn1)(50)
 // 上面两种实现以后的输出是一致的
 
-const compose = (f, g) => (data) => f(g(data))
-const pipe = (f, g) => (data) => g(f(data))
+const compose = (f, g) => data => f(g(data))
+const pipe = (f, g) => data => g(f(data))

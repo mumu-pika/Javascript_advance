@@ -17,7 +17,6 @@ console.log(heavyDuty(100))
 console.log(heavyDuty(200))
 console.log(heavyDuty(300))
 
-
 // 采用闭包之后, 只需要创建一次bigArray
 function heavyDuty2() {
   // suppose it's a huge database
@@ -52,4 +51,3 @@ const Task = () => {
 const day1 = Task()
 console.log(day1.reading())
 // console.log(day1.sleeping())
-

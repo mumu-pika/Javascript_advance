@@ -11,13 +11,10 @@
 
 const obj = { name: 'apple' }
 function clone(obj) {
-  return {...obj} // this is pure
+  return { ...obj } // this is pure
 }
-
-
 
 const cloneObj = clone(obj)
 obj.name = 'banana'
 console.log(obj)
 console.log(cloneObj)
-

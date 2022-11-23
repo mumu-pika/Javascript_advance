@@ -29,7 +29,6 @@
   代码, 以便隔离这些副作用。
 */
 
-
 const array = [1, 2, 3]
 function a(arr) {
   // const newArr = [].concat(arr) // 创建一个数组副本
@@ -38,15 +37,13 @@ function a(arr) {
   return newArr
 }
 
-function b (arr) {
+function b(arr) {
   return arr.map(item => item * 2)
 }
 
 console.log(a(array))
 console.log(b(array))
 console.log(array)
-
-
 
 // 问题：下面这个函数是纯函数嘛？
 function isPureFunction() {
@@ -55,6 +52,6 @@ function isPureFunction() {
 // 不是。console.log会将一些内容记录到浏览器的输出中, 实际上影响了外部世界。
 
 // 下面一个是纯函数的例子
-function pure1 (num1, num2) {
+function pure1(num1, num2) {
   return num1 + num2
 }

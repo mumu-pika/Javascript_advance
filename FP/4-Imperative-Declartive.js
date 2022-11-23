@@ -5,4 +5,4 @@ for (let i = 1; i <= 3; ++i) {
   console.log(i)
 }
 
-[1, 2, 3].forEach(item => console.log(item))
+;[1, 2, 3].forEach(item => console.log(item))

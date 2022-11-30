@@ -1,5 +1,4 @@
-; ((doc, Socket, storage, location) => {
-
+;((doc, Socket, storage, location) => {
   const oList = doc.querySelector('#list')
   const oMsg = doc.querySelector('#message')
   const oSendBtn = doc.querySelector('#send')
@@ -33,11 +32,13 @@
     if (!msg.trim().length) {
       return
     }
-    ws.send(JSON.stringify({
-      user: username,
-      dataTime: new Date().getTime(),
-      message: msg
-    }))
+    ws.send(
+      JSON.stringify({
+        user: username,
+        dataTime: new Date().getTime(),
+        message: msg
+      })
+    )
   }
 
   function handlerOpen() {
@@ -79,7 +80,5 @@
     return oItem
   }
 
-
   init()
-
-})(document, WebSocket, localStorage, location);
+})(document, WebSocket, localStorage, location)

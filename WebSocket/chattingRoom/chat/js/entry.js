@@ -1,4 +1,4 @@
-; ((doc, storage) => {
+;((doc, storage) => {
   const oUsername = doc.querySelector('#username')
   const oEnterBtn = doc.querySelector('#enter')
 
@@ -9,10 +9,9 @@
 
   // 绑定事件声明函数
   function bindEvent() {
-    // addEventListener(type, listener, useCapture) 
+    // addEventListener(type, listener, useCapture)
     // 第三个参数默认为false, 也就是事件捕获
     oEnterBtn.addEventListener('click', handlerEnterBtnClick, false)
-
   }
 
   function handlerEnterBtnClick() {
@@ -37,7 +36,5 @@
     location.href = 'index.html'
   }
 
-
   init()
-
-})(document, localStorage, location);
+})(document, localStorage, location)

@@ -17,6 +17,6 @@ function memoizedAdd100() {
   }
 }
 
-const fn = memoizedAdd100()
+const memoizefn = memoizedAdd100()
 console.log('No.1: ', fn(2))
 console.log('No.2: ', fn(6))

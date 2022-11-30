@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        window.onload = function(){
-            //获取body标签
-            // var body = document.getElementsByTagName("body")[0];
-            // console.log(body);
+      window.onload = function () {
+        //获取body标签
+        // var body = document.getElementsByTagName("body")[0];
+        // console.log(body);
 
-            //在document中有一个属性body，它保存的是body的引用
-            var body = document.body;
-            
-            //document.documentElement保存的是html根标签
+        //在document中有一个属性body，它保存的是body的引用
+        var body = document.body
 
-            var html = document.documentElement;
+        //document.documentElement保存的是html根标签
 
-            //all.length 指该html里全部标签
-            // all = document.getElementsByTagName("*");
-            var all = document.all;
-            
-            /* 
+        var html = document.documentElement
+
+        //all.length 指该html里全部标签
+        // all = document.getElementsByTagName("*");
+        var all = document.all
+
+        /* 
                 根据元素的class属性值查询一组元素节点对象
                 IE9以上的支持，有兼容性问题
             */
-           var box1 =  document.getElementsByClassName("box1");
-            
-           /* 
+        var box1 = document.getElementsByClassName('box1')
+
+        /* 
                 获取class为box1的所有div
                 .box1 div
                 document.querySelector()
@@ -39,23 +39,23 @@
                 使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么它只会返回第一个
                 多个的话，我们就需要使用document.querySelectorAll();
            */
-           var div1 = document.querySelector("div.box1");
-           console.log("用document.querySelector输出：" + div1.innerHTML);
+        var div1 = document.querySelector('div.box1')
+        console.log('用document.querySelector输出：' + div1.innerHTML)
 
-           /* 
+        /* 
                 documentSelectorAll();
            */
-           
-           var div2 = document.querySelectorAll("div.box1");
-           div2 = Array.from(div2);
-           div2.forEach(element => {
-                console.log("用document.querySelectorAll输出：" + element.innerHTML);
-           });
-        };
+
+        var div2 = document.querySelectorAll('div.box1')
+        div2 = Array.from(div2)
+        div2.forEach(element => {
+          console.log('用document.querySelectorAll输出：' + element.innerHTML)
+        })
+      }
     </script>
     <div class="box1">我是第一个box1</div>
     <div class="box1">我是第二个box1</div>
     <div class="box1">我是第三个box1</div>
     <div class="box1">我是第四个box1</div>
-</body>
+  </body>
 </html>

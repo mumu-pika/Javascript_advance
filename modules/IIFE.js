@@ -1,14 +1,14 @@
 // IIFE 立即执行函数
 // Global scope
-  // Module scope
-    // Function scope
-      // Block scope
+// Module scope
+// Function scope
+// Block scope
 
 // (function () {
 //   // todo...
 // })
 
-var fightModule = (function() {
+var fightModule = (function () {
   var harry = 'potter'
   var voldemort = 'He who must not be named'
 

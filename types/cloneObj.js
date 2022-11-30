@@ -15,8 +15,6 @@ let obj = {
 // obj.c = "edf"
 // console.log(clone0)
 
-
-
 // Pass Value, 改变obj中属性的值不会影响cLone对象中的值
 let clone1 = Object.assign({}, obj)
 let clone2 = { ...obj }
@@ -30,12 +28,8 @@ let superClone = JSON.parse(JSON.stringify(obj))
 obj.c.deep = 'hhhh'
 console.log(superClone)
 
-
 // shallow clone 浅拷贝
 
 console.log(obj)
 console.log(clone1)
 console.log(clone2)
-
-
-

@@ -15,4 +15,3 @@
   Scope refers to the visibility of variables.
 
 */
-

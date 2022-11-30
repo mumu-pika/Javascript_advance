@@ -29,7 +29,7 @@ console.log(person.hi())
 // console.log(person2.hi())
 
 // arrow function
- const person3 = {
+const person3 = {
   name: 'pika',
   age: 10,
   hi: function () {
@@ -38,6 +38,6 @@ console.log(person.hi())
     }
     return inner()
   }
- }
+}
 
- console.log(person3.hi())
+console.log(person3.hi())

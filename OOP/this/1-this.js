@@ -12,10 +12,10 @@
 const obj = {
   name: 'pika',
   run() {
-    return this.name + " is running! "
+    return this.name + ' is running! '
   },
   go() {
-    return this.run() + "Go!Go!Go!"
+    return this.run() + 'Go!Go!Go!'
   }
 }
 console.log(obj.go())
@@ -23,7 +23,7 @@ console.log(obj.go())
 // 2、exeute the same code for multiple objects
 
 function game() {
-  console.log(this.name + " is playing games")
+  console.log(this.name + ' is playing games')
 }
 const player1 = {
   name: 'pika',
@@ -34,7 +34,6 @@ const player2 = {
   game
 }
 console.log(player2.game())
-
 
 // ******************************************************************//
 
@@ -107,7 +106,7 @@ const boss = {
   fight() {
     console.log('the boss A :', this)
     var self = this
-    var anotherFunction = function() {
+    var anotherFunction = function () {
       // 使用箭头函数之后, 解决了this的指向问题
       console.log('the boss B:', self)
     }
@@ -117,6 +116,3 @@ const boss = {
   }
 }
 console.log(boss.fight())
-
-
-

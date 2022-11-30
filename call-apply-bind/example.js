@@ -2,9 +2,8 @@ const wizard = {
   name: 'Merlin',
   health: 100,
   heal(num1, num2) {
-    return this.health += num1 + num2 // 这里其实就修改了health并return
+    return (this.health += num1 + num2) // 这里其实就修改了health并return
   }
-
 }
 /* 
   我们能够让archer来借用wizard的heal方法
@@ -19,14 +18,14 @@ const wizard = {
 */
 const archer = {
   name: 'Robin Hood',
-  health: 50,
+  health: 50
 }
 
 console.log(wizard.health)
 console.log(wizard.heal(50, 50))
 console.log(wizard.health)
 
-console.log("********")
+console.log('********')
 console.log(archer.health)
 // console.log(wizard.heal.call(archer, 10, 20))
 // console.log(wizard.heal.apply(archer, [10, 20]))

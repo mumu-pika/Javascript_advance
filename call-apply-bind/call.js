@@ -2,8 +2,8 @@
   我们在调用函数的时候实际上是调用了函数的call()方法
 */
 
-function a () {
-  console.log("hello")
+function a() {
+  console.log('hello')
 }
 
 a.call() // a()是a.call()的简写

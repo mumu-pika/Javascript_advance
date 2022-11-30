@@ -13,4 +13,3 @@ let saber = Object.create(girl)
 saber.age = 16
 console.log(saber.sex)
 console.log(girl.isPrototypeOf(saber))
-

@@ -17,7 +17,6 @@
 */
 class Character {
   constructor(name, weapon) {
-
     this.name = name
     this.weapon = weapon
   }
@@ -50,10 +49,9 @@ class Ogre extends Character {
     return 'strongest fort in the world made'
   }
   attack() {
-    return 'attack with ' + "ahhhhhh"
+    return 'attack with ' + 'ahhhhhh'
   }
 }
-
 
 const dolby = new Elf('Dolby', 'fireworks', 'house')
 console.log(dolby)

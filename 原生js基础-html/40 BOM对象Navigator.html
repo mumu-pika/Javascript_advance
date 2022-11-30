@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BOM对象</title>
     <script>
-        /* 
+      /* 
             BOM
                 浏览器模型
                 BOM可以使我们通过JS来操作浏览器
@@ -29,8 +29,8 @@
                 以上这些BOM对象在浏览器中都是作为window对象的属性保存的
                 可以通过window对象来使用，也可以直接使用
 
-        */         
-        /* 
+        */
+      /* 
             appCodeName  返回浏览器的代码名
             appName      返回浏览器的名称
             Navigator
@@ -45,31 +45,29 @@
                 在IE11里面，已经将微软和IE相关的标识都已经去除了，所以我们基本已经不能通过UserAgent来识别一个浏览器是否是IE
         */
 
-        console.log(navigator.userAgent);
-        //判断浏览器的类型
-        var ua = navigator.userAgent;
-        
-        if(/chrome/i.test(ua)){
-            //判断ua字符串中是否包含chrome(忽略大小写)
-            alert("你是谷歌浏览器");
-        }
-        /* 
+      console.log(navigator.userAgent)
+      //判断浏览器的类型
+      var ua = navigator.userAgent
+
+      if (/chrome/i.test(ua)) {
+        //判断ua字符串中是否包含chrome(忽略大小写)
+        alert('你是谷歌浏览器')
+      }
+      /* 
             如果通过UserAgent不能判断，还可以通过一些浏览器中特有的对象，来判断浏览器的信息
             比如：ActiveXObject
          */
-        // alert(!!window.ActiveXObject); //!!是转换为布尔值的隐式方法
-        //下面这个方法一识别不了IE11，故我们采取方法二
-        // if(window.ActiveXObject){
-        //     alert("你是IE，我抓住你啦！！");
-            
-        // }
-        //方法二，识别IE浏览器
-        if("ActiveXObject" in window){
-            alert("你是IE，我抓住你啦！！");
-        }
+      // alert(!!window.ActiveXObject); //!!是转换为布尔值的隐式方法
+      //下面这个方法一识别不了IE11，故我们采取方法二
+      // if(window.ActiveXObject){
+      //     alert("你是IE，我抓住你啦！！");
+
+      // }
+      //方法二，识别IE浏览器
+      if ('ActiveXObject' in window) {
+        alert('你是IE，我抓住你啦！！')
+      }
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>

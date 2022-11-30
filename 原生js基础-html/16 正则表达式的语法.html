@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-        /* 
+      /* 
             使用字面量来创建正则表达式
             var 变量 = /正则表达式/匹配模式
             但是使用构造函数创建更加灵活 var reg = new RegExp("a");
         */
 
-        reg = a/i; //i忽略大小写
-        console.log(reg.test("abc"));
+      reg = a / i //i忽略大小写
+      console.log(reg.test('abc'))
 
-        /* 
+      /* 
             | 表示或的意思
             [ab] == a|b
             [a-z] 任意小写字母
@@ -24,13 +24,13 @@
             [^ ] 除了
         */
 
-        /* 
+      /* 
             检查一个字符串是否含有abc或adc或aec
             reg = /a[bde]c/;
             reg = /[0-9]/;x
         */
 
-        /* 
+      /* 
             search()
                 可以搜索字符串中是否含有指定内容
                 如果搜索到指定内容，则会返回第一出现的索引，如果没有搜索到就返回-1
@@ -42,7 +42,7 @@
 
         */
 
-        /* 
+      /* 
             match()
                 根据正则表达式，从一个字符串中将符合条件的内容提取出来
 
@@ -51,7 +51,7 @@
 
         */
 
-        /* 
+      /* 
             量词
                 通过量词可以设置一个内容出现的次数
                 {n} 正好出现n次
@@ -68,10 +68,7 @@
 
             var reg = /a{3}/;
         */
-
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>

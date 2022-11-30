@@ -6,13 +6,13 @@
   又一次触发了事件，就重新开始延时。(简单理解：当用户频繁触发时间后，n秒内只执行一次。)
 
 */
-/* 
+/*
  * @param Function fn 延时调用函数
  * @param Number delay 延迟多长时间
  * @param Boolean immediate 是否立即先执行一次
  * @return Function 延迟执行的方法
- * 
-*/
+ *
+ */
 // 防抖函数封装（debouce提供闭包环境）
 function debouce(fn, delay = 200, immediate = true) {
   let timer
@@ -31,8 +31,7 @@ function debouce(fn, delay = 200, immediate = true) {
       timer = setTimeout(() => {
         timer = null //重置timer
       }, delay)
-    }
-    else {
+    } else {
       // 重新设定一个新的定时器，延迟delay调用fn
       timer = setTimeout(() => {
         timer = null //调用fn后，重置timer

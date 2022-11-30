@@ -6,7 +6,7 @@ const module2 = require('module2')
 
 // const fight2 = require('module1').fight
 
-function fight2() { }
+function fight2() {}
 
 module.exports = {
   fight: fight

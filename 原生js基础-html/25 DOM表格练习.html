@@ -1,256 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM表格练习1</title>
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            text-decoration: none;
-        }
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-decoration: none;
+      }
 
-        #employeeTable {
-            margin: 100px auto;
-            width: 500px;
-            font-size: 20px;
-            border-collapse: collapse;
-        }
+      #employeeTable {
+        margin: 100px auto;
+        width: 500px;
+        font-size: 20px;
+        border-collapse: collapse;
+      }
 
-        #employeeTable tr,
-        th,
-        td {
-            text-align: center;
-            border: 2px solid orange;
-        }
+      #employeeTable tr,
+      th,
+      td {
+        text-align: center;
+        border: 2px solid orange;
+      }
 
-        #formdiv {
-            margin: 0 auto;
-            width: 300px;
-            font-size: 20px;
-            border-collapse: collapse;
-        }
+      #formdiv {
+        margin: 0 auto;
+        width: 300px;
+        font-size: 20px;
+        border-collapse: collapse;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        window.onload = function () {
-            /* 
+      window.onload = function () {
+        /* 
                 点击超链接之后，删除一个员工的信息
              */
 
-            //获取所有超链接
-            var allA = document.getElementsByTagName("a");
+        //获取所有超链接
+        var allA = document.getElementsByTagName('a')
 
-            //为每个超链接都绑定一个单击响应函数
-            for (var i = 0; i < allA.length; i++) {
-                /* 
+        //为每个超链接都绑定一个单击响应函数
+        for (var i = 0; i < allA.length; i++) {
+          /* 
                     for循环会在页面加载完成之后立即执行
                     而响应函数会在超链接被点击时候
                 */
 
-                allA[i].onclick = function () {
-                    // alert(this);
-                    //点击超链接以后，需要删除超链接所在的那行
-                    //这里我们点击哪个超链接，this就是哪个
+          allA[i].onclick = function () {
+            // alert(this);
+            //点击超链接以后，需要删除超链接所在的那行
+            //这里我们点击哪个超链接，this就是哪个
 
-                    //获取当前tr, a的父节点是td,td的父节点是tr
-                    var tr = this.parentNode.parentNode;
+            //获取当前tr, a的父节点是td,td的父节点是tr
+            var tr = this.parentNode.parentNode
 
-                    //获取要删除员工的name
-                    // var name = tr.getElementsByTagName("td")[0].innerHTML;
-                    var name = tr.children[0].innerHTML;
+            //获取要删除员工的name
+            // var name = tr.getElementsByTagName("td")[0].innerHTML;
+            var name = tr.children[0].innerHTML
 
-                    //删除tr之前弹出一个提示框
-                    /* 
+            //删除tr之前弹出一个提示框
+            /* 
                         confirm()用于弹出一个带有确认和取消按钮的提示框
                         需要一个字符串作为参数，该字符串将会作为提示文字显示出来
                     */
-                    var isconfirm = confirm("确认删除" + name + "嘛？");
+            var isconfirm = confirm('确认删除' + name + '嘛？')
 
-                    //删除tr
-                    if (isconfirm) { tr.parentNode.removeChild(tr); }
+            //删除tr
+            if (isconfirm) {
+              tr.parentNode.removeChild(tr)
+            }
 
-                    /* 
+            /* 
                         点击超链接以后，超链接会跳转页面，这个是超链接的默认行为
                         但是此时我们不希望出现默认行为，可以通过在响应函数的最后return false 来取消默认行为
                     */
-                    return false;
-                };
-            }
+            return false
+          }
+        }
 
-
-            /* 
+        /* 
                 添加员工的功能
                 点击按钮之后，将员工的信息添加到表格中
             */
-            //为提交按钮绑定一个单击响应函数
-            var addEmpButton = document.getElementById("addEmpButton");
-            addEmpButton.onclick = function () {
-                //获取用户添加的员工信息
-                //获取员工的名字
-                var name = document.getElementById("empName").value; //文本框内内容就是value
-                //获取员工电子email
-                var email = document.getElementById("email").value;
-                //获取员工薪资
-                var salary = document.getElementById("salary").value;
-                //#region
-                // //方法一 (基础，但是比较麻烦)
-                //     //创建tr
-                //     var newtr = document.createElement("tr");
+        //为提交按钮绑定一个单击响应函数
+        var addEmpButton = document.getElementById('addEmpButton')
+        addEmpButton.onclick = function () {
+          //获取用户添加的员工信息
+          //获取员工的名字
+          var name = document.getElementById('empName').value //文本框内内容就是value
+          //获取员工电子email
+          var email = document.getElementById('email').value
+          //获取员工薪资
+          var salary = document.getElementById('salary').value
+          //#region
+          // //方法一 (基础，但是比较麻烦)
+          //     //创建tr
+          //     var newtr = document.createElement("tr");
 
-                //     //创建4个td
-                //     var nametd = document.createElement("td");
-                //     var emailtd = document.createElement("td");
-                //     var salarytd = document.createElement("td");
-                //     var deletetd = document.createElement("td");
+          //     //创建4个td
+          //     var nametd = document.createElement("td");
+          //     var emailtd = document.createElement("td");
+          //     var salarytd = document.createElement("td");
+          //     var deletetd = document.createElement("td");
 
-                //     //创建1个超链接
-                //     var newa = document.createElement("a");
+          //     //创建1个超链接
+          //     var newa = document.createElement("a");
 
-                //     //向a中添加href属性
-                //     newa.href = "javascript:;"; 
+          //     //向a中添加href属性
+          //     newa.href = "javascript:;";
 
-                //     //为新添加的a再绑定一次单击响应函数
-                //     newa.onclick = function(){
-                //         //获取当前tr, a的父节点是td,td的父节点是tr
-                //         var tr = this.parentNode.parentNode;
+          //     //为新添加的a再绑定一次单击响应函数
+          //     newa.onclick = function(){
+          //         //获取当前tr, a的父节点是td,td的父节点是tr
+          //         var tr = this.parentNode.parentNode;
 
-                //         //获取要删除员工的name
-                //         // var name = tr.getElementsByTagName("td")[0].innerHTML;
-                //         var name = tr.children[0].innerHTML;
+          //         //获取要删除员工的name
+          //         // var name = tr.getElementsByTagName("td")[0].innerHTML;
+          //         var name = tr.children[0].innerHTML;
 
-                //         //删除tr之前弹出一个提示框
-                //         /* 
-                //             confirm()用于弹出一个带有确认和取消按钮的提示框
-                //             需要一个字符串作为参数，该字符串将会作为提示文字显示出来
-                //         */
-                //         var isconfirm = confirm("确认删除" + name +"嘛？");
+          //         //删除tr之前弹出一个提示框
+          //         /*
+          //             confirm()用于弹出一个带有确认和取消按钮的提示框
+          //             需要一个字符串作为参数，该字符串将会作为提示文字显示出来
+          //         */
+          //         var isconfirm = confirm("确认删除" + name +"嘛？");
 
-                //         //删除tr
-                //         if(isconfirm){tr.parentNode.removeChild(tr);}
-                //         return false;
-                //     };
+          //         //删除tr
+          //         if(isconfirm){tr.parentNode.removeChild(tr);}
+          //         return false;
+          //     };
 
-                //     //创建相应的3个文本节点
-                //     var nameText = document.createTextNode(name);
-                //     var emailText = document.createTextNode(email);
-                //     var salaryText = document.createTextNode(salary);
-                //     var deleteText = document.createTextNode("Delete");
+          //     //创建相应的3个文本节点
+          //     var nameText = document.createTextNode(name);
+          //     var emailText = document.createTextNode(email);
+          //     var salaryText = document.createTextNode(salary);
+          //     var deleteText = document.createTextNode("Delete");
 
-                //     //将文本节点添加到元素节点中
-                //     nametd.appendChild(nameText);
-                //     emailtd.appendChild(emailText);
-                //     salarytd.appendChild(salaryText);
-                //     newa.appendChild(deleteText);
-                //     deletetd.appendChild(newa);
+          //     //将文本节点添加到元素节点中
+          //     nametd.appendChild(nameText);
+          //     emailtd.appendChild(emailText);
+          //     salarytd.appendChild(salaryText);
+          //     newa.appendChild(deleteText);
+          //     deletetd.appendChild(newa);
 
-                //     //将td添加到tr中
-                //     newtr.appendChild(nametd);
-                //     newtr.appendChild(emailtd);
-                //     newtr.appendChild(salarytd);
-                //     newtr.appendChild(deletetd);
+          //     //将td添加到tr中
+          //     newtr.appendChild(nametd);
+          //     newtr.appendChild(emailtd);
+          //     newtr.appendChild(salarytd);
+          //     newtr.appendChild(deletetd);
 
-                //     //现在tr有了，获取table以及tbody
-                //     var employeeTable = document.getElementById("employeeTable");
-                //     var employeeTbody = employeeTable.getElementsByTagName("tbody")[0];
-                //     //将tr添加到table中
-                //     employeeTbody.appendChild(newtr);
-                //#endregion
+          //     //现在tr有了，获取table以及tbody
+          //     var employeeTable = document.getElementById("employeeTable");
+          //     var employeeTbody = employeeTable.getElementsByTagName("tbody")[0];
+          //     //将tr添加到table中
+          //     employeeTbody.appendChild(newtr);
+          //#endregion
 
-                //方法二
-                //创建一个tr
-                var newtr = document.createElement("tr");
+          //方法二
+          //创建一个tr
+          var newtr = document.createElement('tr')
 
-                //设置tr中的内容
-                newtr.innerHTML = "<td>" + name + "</td>" +
-                    "<td>" + email + "</td>" +
-                    "<td>" + salary + "</td>" +
-                    "<td><a href = 'javascript:;'>Delete</a></td>";
-                newa = newtr.getElementsByTagName("a")[0];
-                //为新添加的a再绑定一次单击响应函数
-                newa.onclick = function () {
-                //获取当前tr, a的父节点是td,td的父节点是tr
-                    var tr = this.parentNode.parentNode;
+          //设置tr中的内容
+          newtr.innerHTML =
+            '<td>' +
+            name +
+            '</td>' +
+            '<td>' +
+            email +
+            '</td>' +
+            '<td>' +
+            salary +
+            '</td>' +
+            "<td><a href = 'javascript:;'>Delete</a></td>"
+          newa = newtr.getElementsByTagName('a')[0]
+          //为新添加的a再绑定一次单击响应函数
+          newa.onclick = function () {
+            //获取当前tr, a的父节点是td,td的父节点是tr
+            var tr = this.parentNode.parentNode
 
-                    //获取要删除员工的name
-                    // var name = tr.getElementsByTagName("td")[0].innerHTML;
-                    var name = tr.children[0].innerHTML;
+            //获取要删除员工的name
+            // var name = tr.getElementsByTagName("td")[0].innerHTML;
+            var name = tr.children[0].innerHTML
 
-                    //删除tr之前弹出一个提示框
-                    /* 
+            //删除tr之前弹出一个提示框
+            /* 
                         confirm()用于弹出一个带有确认和取消按钮的提示框
                         需要一个字符串作为参数，该字符串将会作为提示文字显示出来
                     */
-                    var isconfirm = confirm("确认删除" + name + "嘛？");
-                    //删除tr
-                    if(isconfirm){tr.parentNode.removeChild(tr);}
-                    return false;
-                };
-
-                //获取table
-                var employeeTable = document.getElementById("employeeTable");
-                //获取employeeTable中的tbody
-                var tbody = employeeTable.getElementsByTagName("tbody")[0];
-                // 将tr添加到tbody中
-                tbody.appendChild(newtr);
-
-                };
-
+            var isconfirm = confirm('确认删除' + name + '嘛？')
+            //删除tr
+            if (isconfirm) {
+              tr.parentNode.removeChild(tr)
             }
+            return false
+          }
+
+          //获取table
+          var employeeTable = document.getElementById('employeeTable')
+          //获取employeeTable中的tbody
+          var tbody = employeeTable.getElementsByTagName('tbody')[0]
+          // 将tr添加到tbody中
+          tbody.appendChild(newtr)
+        }
+      }
     </script>
 
     <!-- 员工表格 -->
     <table id="employeeTable">
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Salary</th>
-            <th>(*^▽^*)</th>
-        </tr>
-        <tr>
-            <td>Tom</td>
-            <td>tom@qq.com</td>
-            <td>5000</td>
-            <td><a href="deleteEmp?id=001">Delete</a></td>
-        </tr>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>(*^▽^*)</th>
+      </tr>
+      <tr>
+        <td>Tom</td>
+        <td>tom@qq.com</td>
+        <td>5000</td>
+        <td><a href="deleteEmp?id=001">Delete</a></td>
+      </tr>
     </table>
 
     <!-- 添加员工的方框 -->
     <div id="formdiv">
-        <h4>添加新员工</h4>
-        <table id="addEmp">
-            <tr>
-                <td class="word">name:</td>
-                <td class="input">
-                    <input type="text" name="empName" id="empName">
-                </td>
-            </tr>
-            <tr>
-                <td class="word">email:</td>
-                <td class="input">
-                    <input type="text" name="email" id="email">
-                </td>
-            </tr>
-            <tr>
-                <td class="word">salary:</td>
-                <td class="input">
-                    <input type="text" name="salary" id="salary">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <button id="addEmpButton">Submit</button>
-                </td>
-            </tr>
-        </table>
+      <h4>添加新员工</h4>
+      <table id="addEmp">
+        <tr>
+          <td class="word">name:</td>
+          <td class="input">
+            <input type="text" name="empName" id="empName" />
+          </td>
+        </tr>
+        <tr>
+          <td class="word">email:</td>
+          <td class="input">
+            <input type="text" name="email" id="email" />
+          </td>
+        </tr>
+        <tr>
+          <td class="word">salary:</td>
+          <td class="input">
+            <input type="text" name="salary" id="salary" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button id="addEmpButton">Submit</button>
+          </td>
+        </tr>
+      </table>
     </div>
-
-</body>
-
+  </body>
 </html>

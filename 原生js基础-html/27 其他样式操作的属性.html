@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>其他样式操作的属性</title>
     <!-- 
         element.clientHeight 返回元素的可见高度
@@ -33,39 +33,36 @@
 
              
      -->
-     <style>
-         #box1{
-             width: 100px;
-             height: 100px;
-             background-color: #bfa;
-             padding: 10px;
-             border: 10px solid yellow; 
-             color: red;
-             /* 背景色截取到内容区 */
-             background-clip: content-box; 
-             
-             
-         }
-     </style>
-     <script>
-         window.onload = function(){
-             var button01 = document.getElementById("btn01");
-             button01.onclick = function(){
-                // alert(box1.offsetHeight);
-                var op = box1.offsetParent;
-                alert(op.id);
-                //在没有设置box2,和box3时候输出[object HTMLBodyElement]
-             };
-             
-         };
-     </script>
-</head>
-<body id="body">
+    <style>
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: #bfa;
+        padding: 10px;
+        border: 10px solid yellow;
+        color: red;
+        /* 背景色截取到内容区 */
+        background-clip: content-box;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var button01 = document.getElementById('btn01')
+        button01.onclick = function () {
+          // alert(box1.offsetHeight);
+          var op = box1.offsetParent
+          alert(op.id)
+          //在没有设置box2,和box3时候输出[object HTMLBodyElement]
+        }
+      }
+    </script>
+  </head>
+  <body id="body">
     <button id="btn01">点我有惊喜~</button>
     <div id="box3" style="position: relative">
-        <div id="box2" style="position: relative">
-            <div id="box1"></div>
-        </div>
+      <div id="box2" style="position: relative">
+        <div id="box1"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>字符串的方法</title>
     <script>
-        /* 
+      /* 
             在底层字符串是以字符数组的形式保存的
         */
 
-        var str = "hello pika";
-        console.log("字符串的长度： " + str.length);
-        console.log(str[6]);
+      var str = 'hello pika'
+      console.log('字符串的长度： ' + str.length)
+      console.log(str[6])
 
-        /* 
+      /* 
             charAt()
                 可以返回字符串中指定位置的字符
             var result = str.charAt();
         */
 
-        /* 
+      /* 
             charCodeAt()
                 返回字符串指定位置的字符的unicode值
             var result = str.charCodeAt();
         */
 
-        /* 
+      /* 
             String.fromCharCode();
                 根据字符编码去获取字符
             result = String.fromCharCode();
         */
-        result = String.fromCharCode();
-        console.log(result);
+      result = String.fromCharCode()
+      console.log(result)
 
-        /* 
+      /* 
             concat()
                 可以用来连接两个或多个字符串
             作用和 + 一样
             result = str.concat("你好","再见");
         */
-        
-        /* 
+
+      /* 
             indexof()
                 该方法可以检索一个字符串中是否含有指定内容
                 如果字符串中含有该内容，则会返回其第一次出现的索引
@@ -53,9 +53,9 @@
                 该方法的用法和indexOf()一样
                 不同的是indexOf()是从前往后找，而lastIndexOf()是从后往前找
                 也可以指定开始查找的位置
-        */ 
+        */
 
-        /* 
+      /* 
             slice()
                 可以从字符串中截取指定的内容
                 不会影响原字符串，而是将截取的内容返回
@@ -70,8 +70,8 @@
             result= str.slice(1, -1);
             console.log("截取字符串后的数据： " + result);
 
-         */ 
-        /* 
+         */
+      /* 
             substring()
                 可以用来截取一个字符串，可以slice()类似
                 参数：
@@ -83,7 +83,7 @@
                 而且他会自动参数的位置，如果第二个参数小于第一个，则自动交换
          */
 
-         /* 
+      /* 
             split()
                 可以将一个字符串拆分成为一个数组
             str = “abc,123，bcd";
@@ -91,20 +91,18 @@
 
           */
 
-            str = "abc123bcd";
-            result = str.split("bc");
-            console.log("split()拆分后： " + result);
+      str = 'abc123bcd'
+      result = str.split('bc')
+      console.log('split()拆分后： ' + result)
 
-        /* 
+      /* 
             toUpperCase()
                 将一个字符串转换为大写并返回
             
             toLowerCase()
                 将一个字符串转换为小写并返回
         */
-
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

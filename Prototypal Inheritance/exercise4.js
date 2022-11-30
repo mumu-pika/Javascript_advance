@@ -23,16 +23,13 @@ console.log(year)
 // ******ex2******
 // Modify .map() to print '#' at the end of each item.
 
-Array.prototype.map = function() {
+Array.prototype.map = function () {
   let arr = []
   for (let i = 0; i < this.length; ++i) {
-    arr.push((this[i] + '#'))
+    arr.push(this[i] + '#')
   }
   return arr
 }
 console.log([1, 2, 3].map())
 
-
-
 /* 上面的原型映射的创建方式, 后面会有`class`这个JS语法糖来实现 */
-

@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>小练习1</title>
     <style type="text/css">
-        *{
-            padding: 0;
-            margin: 0;
-        }
+      * {
+        padding: 0;
+        margin: 0;
+      }
 
-        #outer{
-            width: 200px;
-            background-color:pink;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-
-        }
-        #outer img{
-            width: 200px;
-            height: 180px;
-        }
+      #outer {
+        width: 200px;
+        background-color: pink;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
+      }
+      #outer img {
+        width: 200px;
+        height: 180px;
+      }
     </style>
     <script type="text/javascript">
-        window.onload = function(){
-            /* 
+      window.onload = function () {
+        /* 
                 点击按钮切换图片功能
                 要切换图片就是要修改img标签的src属性 
             */
-            
-            //获取img标签
-            var img = document.getElementsByTagName("img")[0];
-            // alert(img);
-            
-            //创建一个数组，用来保存图片的路径
-            var imgArr = ["./image/1.jpg", "./image/2.jpg","./image/3.jpg",
-            "./image/4.jpg","./image/5.jpg","./image/6.jpg"];
 
-            //创建一个变量，来保存当前正在显示的图片的索引
-            var index = 0;
+        //获取img标签
+        var img = document.getElementsByTagName('img')[0]
+        // alert(img);
 
-            var prev = document.getElementById("prev");
-            prev.onclick = function(){
-                if ((index - 1) < 0) {index = imgArr.length;}
-                index --;
-                img.src = imgArr[index]; 
-            };
+        //创建一个数组，用来保存图片的路径
+        var imgArr = [
+          './image/1.jpg',
+          './image/2.jpg',
+          './image/3.jpg',
+          './image/4.jpg',
+          './image/5.jpg',
+          './image/6.jpg'
+        ]
 
-            var next = document.getElementById("next");
-            next.onclick = function(){
-                // alert("嘿嘿嘿");
-                index = ((index + 1) % imgArr.length);
-                img.src = imgArr[index];
-            };
-        };
+        //创建一个变量，来保存当前正在显示的图片的索引
+        var index = 0
 
+        var prev = document.getElementById('prev')
+        prev.onclick = function () {
+          if (index - 1 < 0) {
+            index = imgArr.length
+          }
+          index--
+          img.src = imgArr[index]
+        }
+
+        var next = document.getElementById('next')
+        next.onclick = function () {
+          // alert("嘿嘿嘿");
+          index = (index + 1) % imgArr.length
+          img.src = imgArr[index]
+        }
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="outer">
-        <img src="./image/1.jpg" alt="1">
-        <button id="prev">上一张</button>
-        <button id="next">下一张</button>
-
+      <img src="./image/1.jpg" alt="1" />
+      <button id="prev">上一张</button>
+      <button id="next">下一张</button>
     </div>
-</body>
+  </body>
 </html>

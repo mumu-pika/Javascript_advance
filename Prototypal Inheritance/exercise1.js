@@ -47,5 +47,3 @@ for (let prop in lizard) {
     console.log(prop)
   }
 }
-
-

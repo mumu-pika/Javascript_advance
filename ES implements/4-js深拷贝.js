@@ -3,26 +3,31 @@ let obj1 = {
   array: [1, 2],
   arrayOfObj: [{ a: 3, b: 4 }],
   obj: { c: 5 },
-  fn: function () { console.log(6) },
+  fn: function () {
+    console.log(6)
+  },
   reg: /7/,
 
   // ES6 Map, Set
-  map: new Map([['d', 8], ['e', 9]]),
+  map: new Map([
+    ['d', 8],
+    ['e', 9]
+  ]),
   set: new Set([10, 11]),
 
   num: 12,
-  nulVal: null, // JS中null是属于对象, 有点bug
+  nulVal: null // JS中null是属于对象, 有点bug
 }
 
 // 出现循环引用, 这种情况是可以发生的，就如数据结构中的循环链表，每个节点node就是一个object
 // 这里obj1 和 obj2 互相引用
 let obj2 = {}
-obj2.to  = obj1
-obj1.to =  obj2
+obj2.to = obj1
+obj1.to = obj2
 
 // JSON序列化 => 反序列化 => 序列化
 let cloned = JSON.parse(JSON.stringify(obj1))
-console.log("JSON序列化以后", cloned)
+console.log('JSON序列化以后', cloned)
 // 我们会发现 function, RegExp, Set, Map,没有拷贝过来，【因为这些是JSON中本不存在的数据类型】
 
 // 使用工具库 lodash underscore, 这类是第三方的工具库, 实际工作中可能需要我们呢自己封装
@@ -45,7 +50,6 @@ function deepClone(obj) {
   if (cached.has(obj)) {
     return cached.get(obj)
   }
-
 
   // 大致规则是es6之后的类型判断很多都能使用instanceof
   // 判断正则表达式类型
@@ -78,8 +82,7 @@ function deepClone(obj) {
       tmp.add(deepClone(v))
     }
     return tmp
-  }
-  else {
+  } else {
     // 数组和对象 {} []  new Object || Array() obj.constructor
     let tmp = new obj.constructor()
     cached.set(obj, tmp)
@@ -93,4 +96,4 @@ function deepClone(obj) {
 
 // 应用
 let clonedObj = deepClone(obj1)
-console.log("deepClone之后", clonedObj)
+console.log('deepClone之后', clonedObj)

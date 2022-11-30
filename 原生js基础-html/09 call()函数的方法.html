@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>函数的方法</title>
-</head>
-<script>
+  </head>
+  <script>
     // function fun(){
     //     alert("我是fun函数！");
     // }
@@ -22,20 +21,20 @@
         在调用call()和apply()后可以将一个对象指定为第一个参数
             此时这个对象将会成为函数执行时的this
     */
-    function fun(a,b) {
-        alert(this);
-        console.log("a = " + a);
-        console.log("b = " + b);
+    function fun(a, b) {
+      alert(this)
+      console.log('a = ' + a)
+      console.log('b = ' + b)
     }
 
-    var obj1 = {name:"the name of obj1"};
-    var obj2 = {name:"the name of obj2"};
+    var obj1 = { name: 'the name of obj1' }
+    var obj2 = { name: 'the name of obj2' }
 
     // call()方法可以将实参在对象之后依次传递
     // fun.call(obj1.name,2,3);
 
-    // apply()方法需要将实参封装到一个数组中统一传递 
-    fun.apply(obj2.name,[2,3]);
+    // apply()方法需要将实参封装到一个数组中统一传递
+    fun.apply(obj2.name, [2, 3])
 
     /* 
         this的情况，
@@ -45,11 +44,7 @@
         4、使用call和apply调用时，this是指定的那个对象
 
     */
+  </script>
 
-</script>
-
-<body>
-
-</body>
-
+  <body></body>
 </html>

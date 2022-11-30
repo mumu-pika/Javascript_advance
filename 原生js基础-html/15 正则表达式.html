@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>正则表达式</title>
     <script>
-        /* 
+      /* 
             创建正则表达式的对象
             语法：
                 var 变量 = new RegExp("正则表达式", "匹配模式")
@@ -18,13 +17,12 @@
                 使用这个方法可以用来检查一个字符串是否符合正则表达式 
         */
 
+      var reg = new RegExp('a')
+      var str = 'abc'
+      var result = reg.test(str)
+      console.log(result)
 
-        var reg = new RegExp("a");
-        var str = "abc";
-        var result = reg.test(str);
-        console.log(result);
-
-        /* 
+      /* 
             \w 任意字母、数字、_ [A-z0-9_]
             \W 除了字母、数字、 _ [^A-z0-9_]
             \s 空格
@@ -32,14 +30,8 @@
             \b 单词边界
             
         */
-        
     </script>
+  </head>
 
-
-</head>
-
-<body>
-
-</body>
-
+  <body></body>
 </html>

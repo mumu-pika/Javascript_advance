@@ -12,13 +12,17 @@ var b = {
 var c = {
   name: 'saber',
   run() {
-    return function () { console.log(this) }
+    return function () {
+      console.log(this)
+    }
   }
 }
 var d = {
   name: 'Jerry',
   run() {
-    return () => { console.log(this) }
+    return () => {
+      console.log(this)
+    }
   }
 }
 

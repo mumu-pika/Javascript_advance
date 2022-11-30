@@ -3,7 +3,7 @@
 // Race      竞态, 谁先执行完就做那个, 忽略其他的
 
 const promisify = (item, delay) =>
-  new Promise((resolve) => setTimeout(() => resolve(item), delay))
+  new Promise(resolve => setTimeout(() => resolve(item), delay))
 
 const a = () => promisify('a', 200)
 const b = () => promisify('b', 100)
@@ -17,7 +17,7 @@ async function parallel() {
   return `parallel is done: ${output1}-${output2}-${output3}`
 }
 
-console.log(parallel().then((data) => console.log(data)))
+console.log(parallel().then(data => console.log(data)))
 
 // race
 async function race() {
@@ -26,7 +26,7 @@ async function race() {
   return `race is done: ${output1}`
 }
 
-race().then((data) => console.log(data))
+race().then(data => console.log(data))
 
 // sequence
 async function sequence() {
@@ -37,4 +37,4 @@ async function sequence() {
   return `sequence is done ${output1}-${output2}-${output3}`
 }
 
-sequence().then((data) => console.log(data))
+sequence().then(data => console.log(data))

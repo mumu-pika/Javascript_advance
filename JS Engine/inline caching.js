@@ -5,7 +5,7 @@ function findUser() {
 
 const userData = {
   firstName: 'Jackson',
-  lastName: 'Michael',
+  lastName: 'Michael'
 }
 
 findUser(userData)

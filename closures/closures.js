@@ -23,9 +23,9 @@
 // 闭包在函数的一个应用例子
 function a() {
   let grandpa = 'grandpa'
-  return function b () {
+  return function b() {
     let father = 'father'
-    return function c () {
+    return function c() {
       let son = 'son'
       return `${grandpa} > ${father} > ${son}`
     }
@@ -34,9 +34,8 @@ function a() {
 
 console.log(a()()()) // grandpa > father > son
 
-
 // 闭包和箭头函数
-const boo = (string) => (name) => (name2) => {
+const boo = string => name => name2 => {
   console.log(`${string}-${name}-${name2}`)
 }
 

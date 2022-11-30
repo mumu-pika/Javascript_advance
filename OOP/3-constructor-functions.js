@@ -19,10 +19,9 @@ function elf(name, weapon) {
 }
 
 // 这样不同的新创建的对象都指向同一个内存空间
-elf.prototype.attack = function() {
+elf.prototype.attack = function () {
   return 'attack with ' + this.weapon
 }
-
 
 // 下面两种写法都可以, 注意`this`
 // elf.prototype.build = function() {

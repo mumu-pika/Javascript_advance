@@ -26,8 +26,13 @@ let amazonHistory = []
 function getUserState() {}
 function goForward() {}
 
-const compose = (f, g) => (...args) => f(g(...args))
-function purchaseItem(...fns) { return fns.reduce(compose) }
+const compose =
+  (f, g) =>
+  (...args) =>
+    f(g(...args))
+function purchaseItem(...fns) {
+  return fns.reduce(compose)
+}
 console.log(
   purchaseItem(
     emptyCart,

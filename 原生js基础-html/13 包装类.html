@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>包装类</title>
     <script>
-        /* 
+      /* 
             基本数据类型
                 String Number Boolean Null Undefined
             引用数据类型
@@ -18,47 +18,44 @@
             Boolean()
         */
 
-        /* 
+      /* 
             创建一个Number 类型的对象
             num = 3;
         */
 
-        /* 
+      /* 
             == 代表相同， ===代表严格相同
             当进行双等号比较时候： 先检查两个操作数数据类型，如果相同， 则进行===比较， 
             如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较，
             而===比较时， 如果类型不同，直接就是false.
         */
-        
-        var num = new Number(3);
-        console.log(typeof num);
 
-        /* 
+      var num = new Number(3)
+      console.log(typeof num)
+
+      /* 
             下面这个判断只是判断了对象是否存在，没有判断值
         */
 
-        var a = new Boolean(false);
-        if(a){
-            console.log("OK！");
-        }
+      var a = new Boolean(false)
+      if (a) {
+        console.log('OK！')
+      }
 
-        /* 
+      /* 
             方法和属性能够添加给对象，不能添加给基本数据类型
             当我们对一些基本数据类型的值去调用属性和方法的时候，
             浏览器会临时使用包装类将其转换为对象，然后再调用对象的属性和方法
                 调用完之后，再将其转换为基本数据类型
         */
 
-        var s = 123;
-        s = s.toString();
-        console.log(typeof s);
+      var s = 123
+      s = s.toString()
+      console.log(typeof s)
 
-        s.hello = "12345";
-        console.log(s.hello); //输出undefined 
-
+      s.hello = '12345'
+      console.log(s.hello) //输出undefined
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>

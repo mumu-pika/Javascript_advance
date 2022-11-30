@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <!-- 
@@ -17,20 +17,18 @@
      -->
     <script type="text/javascript" src="./script.js"></script>
     <script>
-        alert('我是内部js代码');
+      alert('我是内部js代码')
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 
         可以将js代码编写到标签的onclick属性中
         虽然可以将js写在标签属性中，但是他们属于是结构和行为耦合，不方便维护，不推荐使用
      -->
-    <button onclick="alert('我喜欢你~');">
-        快点我呀！！
-    </button>
+    <button onclick="alert('我喜欢你~');">快点我呀！！</button>
     <!-- 
         可以将js代码写在超链接的href属性中，这样当点击超链接时候，会执行js代码
      -->
-     <a href="javascript:alert('你还真点啊！哈哈哈')">你也点我一下</a>
-</body>
+    <a href="javascript:alert('你还真点啊！哈哈哈')">你也点我一下</a>
+  </body>
 </html>

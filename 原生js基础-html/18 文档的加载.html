@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>文档的加载</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>hhhhh</h1>
     <script>
-        /* 
+      /* 
             浏览器在加载一个页面时，是按照自上向下的顺序加载的，
             读取到一行就运行一行，如果将script标签写到页面的上边，
             在代码执行时，页面还没有加载
         */
 
-        /* 
+      /* 
             将js代码编写到页面的下部就是为了可以在页面加载完毕以后再执行js代码
             onload事件会在整个页面加载
             为window绑定一个onload事件  
         */
-        window.onload = function(){
-            alert("hello");
-        };
+      window.onload = function () {
+        alert('hello')
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -1,12 +1,10 @@
-
 // Primitive
 console.log(typeof 5) // number
 console.log(typeof true) // boolean
-console.log(typeof "You can ! Do it!") // string
+console.log(typeof 'You can ! Do it!') // string
 console.log(typeof undefined) // undefined
 console.log(typeof null) // object
 console.log(typeof Symbol('saber')) // symbol
-
 
 // Non-Primitive
 console.log(typeof {}) // object

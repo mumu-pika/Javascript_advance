@@ -27,9 +27,8 @@
 Function.prototype.mybind = function (context) {
   //判断是否为一个函数
   if (typeof this !== 'function') {
-    throw new Error("Not a function")
+    throw new Error('Not a function')
   }
-
 
   // 保存调用bind的函数 (也就是fn.bind(...)中的fn)
   const _this = this
@@ -45,14 +44,17 @@ Function.prototype.mybind = function (context) {
   const F = function () {
     // 实现函数柯里化
     // 这时的arguments是指bind返回的函数传入的参数
-    // const bindArgs = Array.prototype.slice.call(arguments) 
+    // const bindArgs = Array.prototype.slice.call(arguments)
     // 合并两个参数并返回
     // return _this.apply(context,  args.concat(bindArgs)) //ES5写法
 
     // 如果当前调用者是new出来的，返回一个空对象，且使得创建出来的实例_proto_指向this的prototype
 
     // return _this.apply(this instanceof F? this : context,  args.concat(...arguments))
-    return _this.apply(this instanceof F ? this : context, [...args, ...arguments])
+    return _this.apply(this instanceof F ? this : context, [
+      ...args,
+      ...arguments
+    ])
   }
   // F.protoype = Object.create(_this.prototype)
   F.prototype = _this.prototype

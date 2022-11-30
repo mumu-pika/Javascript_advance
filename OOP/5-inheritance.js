@@ -41,7 +41,6 @@ class Ogre extends Character {
   }
 }
 
-
 const dolby = new Elf('Dolby', 'fireworks', 'house')
 console.log(dolby)
 
@@ -51,4 +50,4 @@ console.log(shark.makeFort())
 
 console.log(Ogre.prototype.isPrototypeOf(shark))
 console.log(Character.prototype.isPrototypeOf(Ogre.prototype))
-console.log(shark instanceof Character )
+console.log(shark instanceof Character)

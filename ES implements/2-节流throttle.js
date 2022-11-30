@@ -24,12 +24,12 @@
  * @param Number wait 延迟多长时间
  * @param Number atLeast 至少多长时间触发一次
  * @return Function 延迟执行的方法
-*/
+ */
 // 节流函数封装（throttle提供闭包环境）
 // 这里我标记delay为wait，是为了加强语义，表明节流的delay和防抖的delay不同含义。
 function throttle(fn, wait = 2000, atLeast = 0) {
   // Date.now()返回自1970年1月1日00:00:00 UTC以来经过的毫秒数
-  let timer  //设定定时器
+  let timer //设定定时器
   let previousTime //上一次执行的记录(时间点timePoint)
   // 返回节流函数
   return function (...args) {
@@ -38,18 +38,18 @@ function throttle(fn, wait = 2000, atLeast = 0) {
     if (!previousTime) previousTime = currentTime
     // 如果当前时间与上一次调用该函数的时间的时间差大于设定的至少多久触发一次的时间值，
     // 那么执行一次触发
-    if (atLeast && (currentTime - previousTime) > atLeast){
+    if (atLeast && currentTime - previousTime > atLeast) {
       clearTimeout(timer)
       fn.apply(this, args) //调用真正需要节流的函数
       previousTime = currentTime //重置上一次的时间点为当前时间
     }
     // 如果当前时间距离上一次调用该函数的时间相近或是新的一轮
-    else{
+    else {
       clearTimeout(timer)
       timer = setTimeout(() => {
         fn.apply(this, args)
         previousTime = null //重置为空，准备下一轮
-       }, wait)
+      }, wait)
     }
   }
 }

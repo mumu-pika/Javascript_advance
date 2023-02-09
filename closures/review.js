@@ -1,4 +1,4 @@
-// HOF
+// HOF  higer order function 高阶函数
 // 高阶函数返回的函数称为回调函数 callback
 const hof = () => () => 6
 console.log(hof()())
@@ -22,6 +22,6 @@ const closure = function () {
 const incrementFn = closure()
 console.log(incrementFn())
 
-/* 
+/*
   我们可以注意的是, HOF和 Closure函数都可能会让函数不纯。
 */

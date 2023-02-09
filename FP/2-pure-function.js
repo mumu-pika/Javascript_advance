@@ -5,7 +5,7 @@
   * given the same input --> have the same output
 
 
-  side effects 副作用 
+  side effects 副作用
   side effects are what does the function modify
   anything outside of itself
 

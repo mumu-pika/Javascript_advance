@@ -7,7 +7,11 @@ function myBind(context) {
 
   // 关于this的确认
   const _this = this
+
+  // 打日志
   console.log('谁调用了myBind', fn)
+  console.log('传入了参数args1:', args1)
+
   // 排除错误this的情况 => 错误的调用方式
   if (typeof fn !== 'function') {
     throw new Error('Not a function')
@@ -15,6 +19,8 @@ function myBind(context) {
 
   const f = function () {
     const args2 = Array.prototype.slice.call(arguments)
+    // 打日志
+    console.log("传入了参数args2", args2)
     return _this.call(
       f.prototype.isPrototypeOf(this) ? this : context,
       args1.concat(args2)
@@ -36,5 +42,5 @@ let obj = { name: 'saber' }
 
 // 返回一个函数，前期可以缓存参数
 let newFn = fn.myBind(obj, 1, 2) // 测试Fn调用
-myBind(obj, 1, 2)
+// myBind(obj, 1, 2)
 newFn(3, 4)

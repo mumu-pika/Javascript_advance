@@ -1,5 +1,5 @@
 // ES6 Class
-/* 
+/*
   在C++与Java等一些语言中, class是真实存在的,
   而在JS中, class依然是对象, Everything in JS is an object.
 

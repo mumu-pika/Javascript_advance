@@ -3,7 +3,7 @@
 */
 import Axios from 'axios'
 
-const axios = axios.create({
+const axios = Axios.create({
   baseURL: 'https//192.168.1.1',
   timeout: 2000
   // headers: headers

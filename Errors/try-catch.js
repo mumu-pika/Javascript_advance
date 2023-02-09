@@ -1,3 +1,4 @@
+// try catch
 function fail() {
   try {
     console.log('this works, no problem')

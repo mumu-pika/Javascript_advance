@@ -7,7 +7,7 @@ class Promise {
 
     //声明属性
     /*
-          为了保证保证保存的callback不会后来的覆盖之前的，为此
+          为了保证保存的callback不会后来的覆盖之前的，为此
           我们需要用一个数组来保存多个数据
       */
     this.callback = []

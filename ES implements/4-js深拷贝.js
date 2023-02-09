@@ -1,4 +1,5 @@
 // 复杂数据结构，处理深拷贝，object1 => clonedObject 属性修改, 互不影响
+// 需要对于不同数据进行深拷贝
 let obj1 = {
   array: [1, 2],
   arrayOfObj: [{ a: 3, b: 4 }],
@@ -40,7 +41,7 @@ function deepClone(obj) {
   // 宏观思维, 处理不同类型， 两大分类：基本 + 引用
   // 注意null也是对象
   // 基本数据类型 + null + function name(params)
-  // 注意！  !null 是输出true, 所以这里需要加上!obj这个判断
+  // 注意! null 是输出true, 所以这里需要加上!obj这个判断
   // 同理 !obj 还可以判断 undefined, 空串
   if (typeof obj != 'object' || !obj) {
     return obj

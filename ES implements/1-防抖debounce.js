@@ -1,4 +1,4 @@
-// debouce.js (防抖总结整理)
+// debounce.js (防抖总结整理)
 /* 
   防抖
   当持续触发事件时，一定时间段内没有再触发事件，
@@ -13,11 +13,12 @@
  * @return Function 延迟执行的方法
  *
  */
-// 防抖函数封装（debouce提供闭包环境）
-function debouce(fn, delay = 200, immediate = true) {
+// 防抖函数封装（debounce提供闭包环境）
+function debounce(fn, delay = 200, immediate = true) {
   let timer
   return function (...args) {
-    let flag = immediate && !timer //标识是否可以立即执行一次（注意！！这里需要timer为空，且immediate为true,才能立即执行一次）
+    let flag = immediate && !timer
+    //标识是否可以立即执行一次（注意！！这里需要timer为空，且immediate为true,才能立即执行一次）
     // 如果定时器timer不为null
     if (timer) {
       // 每次触发事件都先清除一次设定的定时器，因为定时器需要重新计时
@@ -44,7 +45,7 @@ function debouce(fn, delay = 200, immediate = true) {
 // 这种方法我之前使用过，需要在回调函数中获取this并作为context形参传入
 // 一种通过改变data中的状态来改变bindtap事件绑定的回调函数是否可触发，
 // 是变相的一种防抖，也可以实现功能，但不推荐这种写法
-// export default function debouce(context, delay) {
+// export default function debounce(context, delay) {
 //   let timer
 //   let delay = delay || 500
 //   // 这里的isClick关联着事件回调函数 bindtap="{{!isClick ? 'handleSwitch': ''}}

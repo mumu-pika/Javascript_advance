@@ -5,6 +5,7 @@ const urls = [
   'https://jsonplaceholder.typicode.com/albums'
 ]
 
+// getData
 const getData = async function () {
   try {
     const [users, posts, albums] = await Promise.all(

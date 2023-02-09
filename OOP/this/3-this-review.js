@@ -18,15 +18,15 @@ const person = {
 console.log(person.hi())
 
 // explicit binding 显式的绑定
-// const person2 = {
-//   name: 'saber',
-//   age: 16,
-//   hi: function () {
-//     console.log('hi ' + this.setTimeout)
-//   }.bind(window)
-// }
+const person2 = {
+  name: 'saber',
+  age: 16,
+  hi: function () {
+    console.log('hi ' + this.setTimeout)
+  }.bind(this) // 这里的this是调用hi()的对象
+}
 
-// console.log(person2.hi())
+console.log(person2.hi())
 
 // arrow function
 const person3 = {

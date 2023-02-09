@@ -47,7 +47,6 @@ Function.prototype.mybind = function (context) {
     // const bindArgs = Array.prototype.slice.call(arguments)
     // 合并两个参数并返回
     // return _this.apply(context,  args.concat(bindArgs)) //ES5写法
-
     // 如果当前调用者是new出来的，返回一个空对象，且使得创建出来的实例_proto_指向this的prototype
 
     // return _this.apply(this instanceof F? this : context,  args.concat(...arguments))
@@ -57,6 +56,7 @@ Function.prototype.mybind = function (context) {
     ])
   }
   // F.protoype = Object.create(_this.prototype)
+  // 隐藏内部函数的原型，修正成调用方_this的原型
   F.prototype = _this.prototype
   return F
 }
